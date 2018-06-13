@@ -1,0 +1,28 @@
+
+.dropDown{
+    position: absolute;
+    color:whitesmoke;
+    background: #000000e7;
+    height: 50vh;
+    width: 100vw;
+    top: 50px;
+    z-index: 9;
+    position: fixed;
+}
+.hiddenDD{
+    top: -500px;
+}
+.dropDownContent{
+    padding: 20px;
+}
+.dropDownContent div{
+    padding-top:40px;
+}
+ul{
+    height: 100%;
+}
+.listitem{
+    height: 20px;
+    font-size: 20px;
+
+}

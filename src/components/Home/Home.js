@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../Navbar/Navbar';
 import axios from 'axios';
+import './Home.css'
 
 
 export default class Home extends Component {
@@ -22,15 +23,16 @@ export default class Home extends Component {
     render() {
         let mappedphotos = this.state.photos.map((element, i) => 
                 <div key = {i}>
-                    <div className = 'photos'>
-                        <img alt='' src={element}/>
+                    <div>
+                        <img className = 'photos' alt='' src={element}/>
                     </div> 
                 </div> 
         )
         return (
             <div>
                 <Nav/>
-                <div>Home
+                <div className = 'home'>
+                    <div className = 'userinfo'>Picture of Person logged in</div> 
                     <br/>
                     {mappedphotos}
                 </div>
