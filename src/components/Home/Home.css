@@ -1,18 +1,50 @@
+.imgcap{
+    box-shadow: 0px 0px 10px #2c2b2b;
+    padding: 15px;
+    border-radius: 10px;
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 30px;
+    background-color: whitesmoke;
+}
 .photos{
     height: 300px;
     width: 300px;
-    margin-top: 20px;
-    /* border:  1px solid #2c2b2b; */
+    margin-bottom: 10px;
     border-radius: 10px;
+}
+.captions{
+    width: 300px;
     box-shadow: 5px 5px 30px #2c2b2b;
+    border-radius: 10px;
+    z-index: 5;
+    padding: 10px;
+    margin: auto;
 }
 .userinfo{
-    /* margin-bottom: 40px; */
-    text-align: 
+    box-shadow: 0px 0px 10px #2c2b2b;
+    background-color: whitesmoke;
+    padding: 10px;
+    width: 325px;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 10px;
 }
 .home{
     padding-top: 58px;
     background-image: url(http://dadatiles.com.au/wp-content/uploads/2016/12/calcatta-white-marble.jpg);
-    background-repeat: no-repeat;
-    /* backgrou */
+    /* background-repeat: no-repeat; */
+}
+.currentuserphoto{
+    border-radius: 100px;
+    height: 100px;
+    width: 100px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+p{
+    padding: 5px;
 }

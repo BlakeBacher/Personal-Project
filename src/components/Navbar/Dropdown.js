@@ -12,7 +12,7 @@ export default (props) => {
                         <Link to = '/Schedule'><div className = 'listitem'>Schedule</div></Link>
                         <Link to = '/blog'><div className = 'listitem'>Blog</div></Link>
                         <Link to = '/About'><div className = 'listitem'>About</div></Link>
-                        <Link to = '/Contact'><div className = 'listitem'>Contact US</div></Link>
+                        <Link to = '/Contact'><div className = 'listitem'>Contact</div></Link>
                         <Link to = ''><div href = 'http://localhost:3030/auth/logout' className = 'listitem'>Logout</div></Link>
                     </div>
                 </div>
@@ -21,4 +21,3 @@ export default (props) => {
 };
 
 
-//http://localhost:3030/auth/logout

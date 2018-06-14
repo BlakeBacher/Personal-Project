@@ -13,8 +13,23 @@ module.exports = {
             let images = result.data.data.map((element, i) => {
                 return element.images.standard_resolution.url
             })
-            res.status(200).send(images)
+            let captions = result.data.data.map((element, i) => {
+                return element.caption.text
+            })
+            let response = {images, captions}
+            res.status(200).send(response)
         })
         .catch(x => {res.status(500).send(x)})
-    }
+    },
 }
+
+// getposts: (req, res) => {
+   
+//     axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${process.env.ACCESS_TOKEN}`).then(result => {
+//         let images = result.data.data.map((element, i) => {
+//             return element.images.standard_resolution.url
+//         })
+//         res.status(200).send(images)
+//     })
+//     .catch(x => {res.status(500).send(x)})
+// },

@@ -9,34 +9,59 @@ export default class Home extends Component {
         super()
 
         this.state = {
-            photos:[]
-                
-            
+            images:[], 
+            captions:[],
+            currentuser:{}
         }
     }
     componentDidMount(){
         axios.get('/getphotos').then(res => {
-            this.setState ({photos: res.data})
-            }) 
-        }
+            this.setState ({images:res.data.images, captions: res.data.captions})
+            })
+        axios.get('/getcurrentuser').then(res => {
+            this.setState ({currentuser: res.data})
+        })
+    }
     
     render() {
-        let mappedphotos = this.state.photos.map((element, i) => 
-                <div key = {i}>
-                    <div>
-                        <img className = 'photos' alt='' src={element}/>
-                    </div> 
+        let mappedposts = this.state.images.map((element, i) => 
+            <div key = {i}>
+                <div className = 'imgcap'>
+                    <img className = 'photos' alt='' src={element}/>
+                    <br/>
+                    {this.state.captions[i]}
                 </div> 
+            </div> 
         )
+        
+           
         return (
             <div>
                 <Nav/>
                 <div className = 'home'>
-                    <div className = 'userinfo'>Picture of Person logged in</div> 
+                    <div className = 'userinfo'>
+                        <div><img alt = '' className = 'currentuserphoto' src = {this.state.currentuser.profile_picture}/></div>
+                        <div>Hi, {this.state.currentuser.username}!</div>
+                        <br/>
+                        <p>Welcome to KJOSTYLES! Here you can schedule appointments, look at my most recent work or check out my blog.</p>
+                    </div> 
                     <br/>
-                    {mappedphotos}
+                {mappedposts}
                 </div>
             </div> 
         )
     }
 }
+
+
+
+
+
+
+
+{/* <div key = {i}>
+                <div className = 'imgcap'>
+                    <img className = 'photos' alt='' src={element}/>
+                    <div className = 'captions'>{this.state.captions[i]}</div> 
+                </div> 
+            </div>  */}

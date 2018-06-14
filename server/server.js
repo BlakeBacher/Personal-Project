@@ -57,6 +57,7 @@ passport.use(new Auth0Strategy({
 
 passport.serializeUser((primaryKeyID, done) => {
     done(null, primaryKeyID);
+
 })
 passport.deserializeUser((primaryKeyID, done) => {
     app.get('db').find_user_session([primaryKeyID]).then(user => {
@@ -75,7 +76,7 @@ app.get('/login', passport.authenticate('auth0', {connection: 'instagram'}));
 app.get('/login/callback', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:3000/#/home'
 }))
-app.get('/auth/user', (req,res) => {
+app.get('/getcurrentuser', (req,res) => {
     if(req.user){
         res.status(200).send(req.user);
     } else {
@@ -85,6 +86,7 @@ app.get('/auth/user', (req,res) => {
 
 
 app.get('/getphotos', controller.getposts)
+
 // app.post('/api/addpost', controller.addpost)
    
     
