@@ -22,7 +22,20 @@ ul{
     height: 100%;
 }
 .listitem{
-    height: 20px;
+    height: 40px;
+    margin-top: 10px;
     font-size: 20px;
-
+    color: whitesmoke;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: whitesmoke;
+}
+.listitem:active{
+    background-color: whitesmoke;
+    color: black;
 }

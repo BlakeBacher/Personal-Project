@@ -8,12 +8,12 @@ export default (props) => {
         <div>
                 <div className={props.drawerToggle ? 'dropDown animated fadeInDownBig' : 'hiddenDD dropDown'}>
                     <div className='dropDownContent'>
-                        <Link to = '/home'><div className = 'listitem'>Home</div></Link>
-                        <Link to = '/Schedule'><div className = 'listitem'>Schedule</div></Link>
-                        <Link to = '/blog'><div className = 'listitem'>Blog</div></Link>
-                        <Link to = '/About'><div className = 'listitem'>About</div></Link>
-                        <Link to = '/Contact'><div className = 'listitem'>Contact</div></Link>
-                        <Link to = ''><div href = 'http://localhost:3030/auth/logout' className = 'listitem'>Logout</div></Link>
+                        <Link to = '/home'><li className = 'listitem'>Home</li></Link>
+                        <Link to = '/Schedule'><li className = 'listitem'>Schedule</li></Link>
+                        <Link to = '/blog'><li className = 'listitem'>Blog</li></Link>
+                        <Link to = '/About'><li className = 'listitem'>About</li></Link>
+                        <Link to = '/Contact'><li className = 'listitem'>Contact</li></Link>
+                        <Link to = ''><li href = 'http://localhost:3030/auth/logout' className = 'listitem'>Logout</li></Link>
                     </div>
                 </div>
         </div>

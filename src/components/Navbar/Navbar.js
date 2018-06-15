@@ -28,14 +28,6 @@ export default class Navbar extends Component{
                     <div className = {this.state.drawerToggle ? 'bar bar1' : 'bar'}></div> 
                     <div className = {this.state.drawerToggle ? 'bar bar2' : 'bar'}></div> 
                 </div>
-                <ul className = 'list'>
-                    <li className='listitem'></li>
-                    <li className='listitem'></li>
-                    <li className='listitem'></li>
-                    <li className='listitem'></li>
-                    <li className='listitem'></li>
-                    <li className='listitem'></li>
-                </ul>
             </header> 
             <Dropdown drawerToggle = {this.state.drawerToggle}/>
         </div>

@@ -59,9 +59,3 @@ export default class Home extends Component {
 
 
 
-{/* <div key = {i}>
-                <div className = 'imgcap'>
-                    <img className = 'photos' alt='' src={element}/>
-                    <div className = 'captions'>{this.state.captions[i]}</div> 
-                </div> 
-            </div>  */}

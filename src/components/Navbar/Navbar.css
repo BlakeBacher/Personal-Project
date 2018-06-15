@@ -32,7 +32,7 @@ header{
        transform: rotate(90deg)
 }
 .bar1{
-    transform: rotate(45deg) translate(3px);
+    transform: rotate(45deg) translate(4px);
     /* background-color: red; */
 }
 .bar2{
