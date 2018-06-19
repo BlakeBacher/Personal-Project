@@ -7,7 +7,7 @@
     flex-direction: column;
     margin: auto;
     margin-top: 30px;
-    background-color: whitesmoke;
+    background-color:whitesmoke;
 }
 .photos{
     height: 300px;
@@ -34,7 +34,8 @@
 }
 .home{
     padding-top: 58px;
-    background-image: url(http://dadatiles.com.au/wp-content/uploads/2016/12/calcatta-white-marble.jpg);
+    background-color: rgb(199, 199, 199);
+    /* background-image: url(http://dadatiles.com.au/wp-content/uploads/2016/12/calcatta-white-marble.jpg); */
     /* background-repeat: no-repeat; */
 }
 .currentuserphoto{

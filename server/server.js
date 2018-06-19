@@ -72,7 +72,7 @@ app.get('/auth/logout', (req, res) => {
     req.logOut();
     res.redirect(`http://${process.env.DOMAIN}/v2/logout?returnTo=http://localhost:3000`)
 })
-app.get('/login', passport.authenticate('auth0', {connection: 'instagram'}));
+app.get('/login', passport.authenticate('auth0', {connection: 'instagram'})); 
 app.get('/login/callback', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:3000/#/home'
 }))
@@ -83,6 +83,15 @@ app.get('/getcurrentuser', (req,res) => {
         res.status(401).send('Nice Try')
     }
 })
+app.get('/auth/me' ,(req, res) => {
+    if(req.user.admin === true){
+        res.status(200).send(req.user.admin)
+        successRedirect:'http//localhostt:3000/#/admin'
+    }else{
+        res.status(401).send('Unauthorized')
+    }
+})
+    
 
 
 app.get('/getphotos', controller.getposts)
