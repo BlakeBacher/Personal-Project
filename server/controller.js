@@ -21,6 +21,27 @@ module.exports = {
         })
         .catch(x => {res.status(500).send(x)})
     },
-    
-}
+    getappointments: (req, res) => {
+        const db = req.app.get('db')
 
+        db.get_appointments()
+        .then(appointments => res.status(200).send(appointments))
+        .catch(x => res.status(500).send(x))
+    },
+    addappointment: (req,res) => {
+        const db = req.app.get('db');
+        const {firstname, lastname, phonenumber, service, date, time, notes }=req.body
+
+        db.add_appointment(firstname, lastname, phonenumber, service, date, time, notes)
+            .then(appointment => res.status(200).send(appointment))
+            .catch(x => res.status(500).send(x))
+    },
+    deleteappointment: (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+
+        db.delete_appointment(id)
+        .then(appointments => res.status(200).send(appointments))
+        .catch(x => res.status(500).send(x))
+    }
+}

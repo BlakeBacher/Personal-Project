@@ -86,7 +86,7 @@ app.get('/getcurrentuser', (req,res) => {
 app.get('/auth/me' ,(req, res) => {
     if(req.user.admin === true){
         res.status(200).send(req.user.admin)
-        successRedirect:'http//localhostt:3000/#/admin'
+        successRedirect:'http//localhostt:3000/#/admin/home'
     }else{
         res.status(401).send('Unauthorized')
     }
@@ -95,6 +95,9 @@ app.get('/auth/me' ,(req, res) => {
 
 
 app.get('/getphotos', controller.getposts)
+app.get('/api/getappointments', controller.getappointments)
+app.post('/api/addappointment', controller.addappointment)
+app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 
 // app.post('/api/addpost', controller.addpost)
    

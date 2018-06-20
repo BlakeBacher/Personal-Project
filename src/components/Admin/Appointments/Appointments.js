@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import Nav from '../Navbar/Navbar'
-import './Schedule.css'
-// import DatePicker from './Datepicker'
-import axios from 'axios'
+import './Appointments.css'
+import AdminNav from './../NavBar/AdminNav'
+import axios from 'axios';
 
-
-export default class Schedule extends Component {
+export default class AdminPage extends Component {
     constructor(){
         super()
 
         this.state = {
+            appointments:[],
             firstname:'',
             lastname:'',
             phonenumber:'',
             service:'',
             date:'',
-            time:''
+            time:'',
+            notes:''
         }
         this.handleChange = this.handleChange.bind(this)
-        this.addAppointment =  this.addAppointment.bind(this)
+        this.addAppointment = this.addAppointment.bind(this)
+        this.deleteAppointment = this.deleteAppointment.bind(this)
     }
-
+    componentDidMount(){
+        axios.get('/api/getappointments').then((res) => {
+            this.setState({appointments: res.data})
+        })
+    }
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
     }
@@ -31,25 +36,42 @@ export default class Schedule extends Component {
             phonenumber: this.state.phonenumber,
             service: this.state.service,
             date: this.state.date,
-            time: this.state.time
+            time: this.state.time,
+            notes: this.state.notes
         }
         axios.post('/api/addappointment', body).then(() => {
-            alert('Thank you for scheduling an appointment!')
-            this.props.history.push('/home')
+            alert('Submitted!')
+        })
+    }
+    deleteAppointment(id){
+        axios.delete(`/api/deleteappointment/${id}`).then((res)=> {
+            this.setState({appointments: res.data})
         })
     }
 
-
     render() {
+        let mappedappointments = this.state.appointments.map((e, i) => 
+            <div key = {i}>
+                <div className = 'items'>
+                    <p>Name: {e.firstname} {e.lastname}</p>
+                    <p>Phone: {e.phonenumber}</p>
+                    <p>Service: {e.service}</p>
+                    <p>Date: {e.date}</p>
+                    <p>Time: {e.time}</p>
+                    <p>Notes: {e.notes}</p>
+                    <button className='itembutton'>Edit</button>
+                    <button className='itembutton' onClick = {(id)=> { this.deleteAppointment(e.id)}}>Delete</button>
+                </div> 
+            </div> 
+        )
         return (
             <div>
-                <Nav/>
-                <div className = 'schedule'>Schedule an appointment here
-                    <br/>
-                    <form>
+                <AdminNav/>
+                <div className = 'appointments'>
+                <form>
                         <input 
                             type='text'
-                            className=''
+                            className='input'
                             placeholder = 'Firstname'
                             name = 'firstname'
                             value = {this.state.firstname}
@@ -57,7 +79,7 @@ export default class Schedule extends Component {
                         />
                         <input 
                             type='text'
-                            className=''
+                            className='input'
                             placeholder = 'Lastname'
                             name = 'lastname'
                             value = {this.state.lastname}
@@ -65,7 +87,7 @@ export default class Schedule extends Component {
                         />
                         <input 
                             type='tel' 
-                            className='' 
+                            className='input' 
                             placeholder = 'Phone Number' 
                             name = 'phonenumber' 
                             value = {this.state.phonenumber} 
@@ -73,7 +95,7 @@ export default class Schedule extends Component {
                         />
                         <select
                             type='text'
-                            className='picker padding'
+                            className='input'
                             placeholder = 'Service'
                             name = 'service'
                             value = {this.state.service}
@@ -84,22 +106,16 @@ export default class Schedule extends Component {
                             <option>Eyelashes</option>
                             <option>Color</option>
                         </select>
-                        {/* <DatePicker
-                            className='picker'
-                            value ={this.state.date}
-                            name = 'date'
-                            onChange = {this.handleChange}
-                        /> */}
                         <input
                             type = 'date'
-                            className = ''
+                            className = 'input'
                             placeholder = 'Date'
                             name = 'date'
                             value = {this.state.date}
                             onChange = {this.handleChange}
                         />
                         <select 
-                            className = 'picker padding'
+                            className = 'input'
                             name = 'time' 
                             value ={this.state.time} 
                             onChange = {this.handleChange}
@@ -107,15 +123,21 @@ export default class Schedule extends Component {
                             <option hidden>Time</option>
                             <option>7:30 - 8:30AM</option>
                             <option>9:30 - 10:30AM</option>
-                        </select> 
-
+                        </select>
+                        <textarea 
+                            type = 'text'
+                            id = 'notes'
+                            placeholder = 'Notes'
+                            name = 'notes'
+                            value = {this.state.notes}
+                            onChange = {this.handleChange}
+                        />
                         <button className='submit' onClick = {this.addAppointment}>Submit</button>
                     </form>
-                </div> 
-            </div>
+                    <div className = 'break'></div> 
+                    {mappedappointments}
+                </div>
+            </div> 
         )
     }
 }
-
-
-

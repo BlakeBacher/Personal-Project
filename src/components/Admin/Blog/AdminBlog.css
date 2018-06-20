@@ -1,0 +1,47 @@
+.adminblog{
+    padding-top: 58px;
+}
+.input{
+    height: 40px;
+    width: 275px;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 2px;
+    margin: auto;
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 20px;
+    padding: 5px;
+    display: flex;
+}
+#blogpost{
+    height: 200px;
+    width: 275px;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 2px;
+    margin: auto;
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 20px;
+    padding: 5px;
+    display: flex;
+}
+.post{
+    background-color: whitesmoke;
+    width: 100px;
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    box-shadow: 3px 3px 10px grey;
+    border-radius: 15px;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    }
+.post:active{
+    box-shadow: 5px 5px 10px grey;
+}

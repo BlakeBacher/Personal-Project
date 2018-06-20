@@ -1,0 +1,100 @@
+header{
+    background-color: #000000e7;
+    color: whitesmoke;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    position: fixed;
+    z-index: 10;
+}
+.title{
+    float: left;
+    font-family: serif;
+    font-size: 22px;
+    margin-left: 15px;
+    letter-spacing: 4px;
+
+}
+.barbox{
+    margin: 15px;
+    float: right;
+    transition: 0.3s;
+}
+.bar{
+    background-color: whitesmoke;
+    height: 2px;
+    width: 25px;
+    border-radius: 3px;
+    margin-top: 4px;
+    transition: 0.1s 0.3s;
+}
+.barbox1{
+       transform: rotate(90deg)
+}
+.bar1{
+    transform: rotate(45deg) translate(4px);
+    /* background-color: red; */
+}
+.bar2{
+    transform: rotate(-45deg) translate(4px);
+    /* background-color: red; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .main{
+    background-color: #000000da;
+    height: 50px;
+    color: #efefef;
+    font-family: serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    line-height: 50px;
+
+}
+.title{
+    float: left;
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin-left: 15px;
+}
+.navbuttons{
+    float: right;
+} */
+/* .x{
+    background-color: black;
+    height: 10px;
+    width: 10px;
+    color: black;
+    float: right;
+} */
