@@ -96,7 +96,9 @@ app.get('/auth/me' ,(req, res) => {
 
 app.get('/getphotos', controller.getposts)
 app.get('/api/getappointments', controller.getappointments)
+app.get('/api/blogposts', controller.getblogposts)
 app.post('/api/addappointment', controller.addappointment)
+app.post('/api/addblogpost', controller.addblogpost)
 app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 
 // app.post('/api/addpost', controller.addpost)

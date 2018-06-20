@@ -28,6 +28,13 @@ module.exports = {
         .then(appointments => res.status(200).send(appointments))
         .catch(x => res.status(500).send(x))
     },
+    getblogposts: (req, res) => {
+        const db = req.app.get('db')
+
+        db.get_blog_posts()
+        .then(blogposts => res.status(200).send(blogposts))
+        .catch(x => res.status(500).send(x))
+    },
     addappointment: (req,res) => {
         const db = req.app.get('db');
         const {firstname, lastname, phonenumber, service, date, time, notes }=req.body
@@ -35,6 +42,14 @@ module.exports = {
         db.add_appointment(firstname, lastname, phonenumber, service, date, time, notes)
             .then(appointment => res.status(200).send(appointment))
             .catch(x => res.status(500).send(x))
+    },
+    addblogpost:(req, res) => {
+        const db = req.app.get('db')
+        const {title, blogpost} = req.body
+
+        db.add_blog_post(title, blogpost)
+        .then(posts => res.status(200).send(posts))
+        .catch(x => res.status(500).send(x))
     },
     deleteappointment: (req, res) => {
         const db = req.app.get('db')

@@ -33,13 +33,21 @@ export default class AdminBlog extends Component {
     }
 
     render() {
+        let mappedposts = this.state.posts.map((e,i) => 
+            <div key = {i} className = 'post'>
+                <div className = 'titleOnPost'>{e.title}</div>
+                <br/>
+                <div className = 'textOnPost'>{e.post}</div>
+            </div> 
+        )
         return (
             <div>
                 <AdminNav/>
                 <div className = 'adminblog'>
                     <input type='text' name = 'title' value = {this.state.title} onChange = {this.handleChange} className='input' placeholder = 'Title'/>
                     <textarea type='text' name = 'blogpost' value = {this.state.blogpost} onChange = {this.handleChange} id='blogpost' placeholder = 'Content'/>
-                    <button className='post' onClick = {this.addBlogPost()}>Post</button>
+                    <button className='postbutton' onClick = {() => {this.addBlogPost()}}>Post</button>
+                    {mappedposts}
                 </div>
             </div> 
         )

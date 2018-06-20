@@ -27,7 +27,7 @@
     padding: 5px;
     display: flex;
 }
-.post{
+.postbutton{
     background-color: whitesmoke;
     width: 100px;
     padding: 20px;
@@ -42,6 +42,21 @@
     border-width: 1px;
     border-color: black;
     }
-.post:active{
+.postbutton:active{
     box-shadow: 5px 5px 10px grey;
+}
+.post{
+    box-shadow: 0px 0px 10px #2c2b2b;
+    padding: 15px;
+    border-radius: 10px;
+    width: 325px;
+    margin: auto;
+    margin-top: 30px;
+    background-color:whitesmoke;
+}
+.titleOnPost{
+    float: left;
+}
+.textOnPost{
+    float: left;
 }
