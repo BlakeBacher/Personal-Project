@@ -1,3 +1,19 @@
 .blog{
     padding-top: 58px;
 }
+.blogpost{
+    box-shadow: 0px 0px 10px #2c2b2b;
+    padding: 15px;
+    border-radius: 10px;
+    width: 325px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color:whitesmoke;
+    /* height: 300px; */
+    text-align: left;
+    word-wrap: break-word;
+}
+.blogposttitle{
+    font-size: 20px;
+}

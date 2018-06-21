@@ -28,8 +28,15 @@ export default class AdminBlog extends Component {
             blogpost: this.state.blogpost,
         }
         axios.post('/api/addblogpost', body).then((res) => {
-            this.setState({posts: res.data})
+            this.setState({posts: res.data, title:'', blogpost:''})
         })
+    }
+    deleteblogpost(id){
+        let result = window.confirm('Are you sure you want to delete this blog post?')
+        if (result === true){
+        axios.delete(`/api/deleteblogpost/${id}`).then((res) => {
+            this.setState({posts: res.data})
+        })}
     }
 
     render() {
@@ -37,7 +44,10 @@ export default class AdminBlog extends Component {
             <div key = {i} className = 'post'>
                 <div className = 'titleOnPost'>{e.title}</div>
                 <br/>
-                <div className = 'textOnPost'>{e.post}</div>
+                {e.post}
+                <br/>
+                <button className='buttons'>Edit</button>
+                <button className='buttons' onClick = {(id) => {this.deleteblogpost(e.id)}}>Delete</button>
             </div> 
         )
         return (

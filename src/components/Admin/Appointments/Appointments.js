@@ -44,9 +44,11 @@ export default class AdminPage extends Component {
         })
     }
     deleteAppointment(id){
+        let result = window.confirm('Are you sure you want to delete appointment?')
+        if(result === true){
         axios.delete(`/api/deleteappointment/${id}`).then((res)=> {
             this.setState({appointments: res.data})
-        })
+        })}
     }
 
     render() {

@@ -35,6 +35,13 @@ module.exports = {
         .then(blogposts => res.status(200).send(blogposts))
         .catch(x => res.status(500).send(x))
     },
+    // getblogpostsclient: (req, res) => {
+    //     const db =  req.app.get('db')
+
+    //     db.get_blog_posts_client()
+    //     .then(blogposts => res.status(200).send(blogposts))
+    //     .catch(x => res.status(500).send(x))
+    // },
     addappointment: (req,res) => {
         const db = req.app.get('db');
         const {firstname, lastname, phonenumber, service, date, time, notes }=req.body
@@ -58,5 +65,14 @@ module.exports = {
         db.delete_appointment(id)
         .then(appointments => res.status(200).send(appointments))
         .catch(x => res.status(500).send(x))
+    },
+    deleteblogpost: (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+
+        db.delete_blog_post(id)
+        .then(posts =>  res.status(200).send(posts))
+        .catch(x => res.status(500).send(x))
     }
+
 }
