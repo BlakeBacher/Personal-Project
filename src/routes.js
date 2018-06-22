@@ -43,9 +43,8 @@ class PrivateRoute extends Component {
 		return this.state.authenticated === null ? (
 			<div>Loading...</div>
 		) : this.state.authenticated === false ? (
-			<Redirect to="/" />
+			<Redirect to="/home" />
 		) : (
-			// <Redirect to ='/admin/home'/>
 			<Component {...this.props}/>
 		);
 	}

@@ -20,14 +20,12 @@ export default class AdminPage extends Component {
             editpopup: false
         }
         this.handlePopUp = this.handlePopUp.bind(this)
+        this.cancel = this.cancel.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment = this.addAppointment.bind(this)
         this.deleteAppointment = this.deleteAppointment.bind(this)
     }
     handlePopUp(e, i){
-        console.log(e.id)
-        let id = e.id
-        if(e.id === e.id){
         this.setState({
             editpopup: !this.state.editpopup,
             firstname: e.firstname,
@@ -37,7 +35,18 @@ export default class AdminPage extends Component {
             date: e.date,
             time: e.time,
             notes: e.notes
-        })}
+        })
+    }
+    cancel(){
+        this.setState({
+            editpopup: false,
+            firstname:'',
+            lastname:'',
+            phonenumber:'',
+            date:'',
+            time:'',
+            notes:''
+        })
     }
     componentDidMount(){
         axios.get('/api/getappointments').then((res) => {
@@ -104,7 +113,7 @@ export default class AdminPage extends Component {
                     <p>Time: {e.time}</p>
                     <p>Notes: {e.notes}</p>
 
-                    <button className='itembutton' onClick = {(e, i) => { this.handlePopUp(e, i) }}>Edit</button>
+                    <button className='itembutton' onClick = {() => { this.handlePopUp(e,i) }}>Edit</button>
                     <button className='itembutton' onClick = {(id) => { this.deleteAppointment(e.id) }}>Delete</button>
                 </div>
             </div>
@@ -204,8 +213,8 @@ export default class AdminPage extends Component {
                             <option>7:30 - 8:30AM</option>
                             <option>9:30 - 10:30AM</option>
                         </select>
-                        <button className='submit' onClick = {this.handlePopUp}>Cancel</button>
-                        <button className = 'submit'>Update</button> 
+                        <button className='submit' onClick = {this.cancel}>Cancel</button>
+                        <button className = 'submit' onClick = {(id) => {this.editAppointment(id)}}>Update</button> 
                             {/* this will handle our on click for updating */}
                     </div> 
                     

@@ -74,7 +74,8 @@ app.get('/auth/logout', (req, res) => {
 })
 app.get('/login', passport.authenticate('auth0', {connection: 'instagram'})); 
 app.get('/login/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/home'
+    successRedirect: 'http://localhost:3000/#/admin/home'
+    ///////////////////////////////////////////////////////////////////ASK MASON ABOUT THIS ////////////////////////////////////////////////////////////////////////////////////////////////////
 }))
 app.get('/getcurrentuser', (req,res) => {
     if(req.user){
@@ -86,7 +87,7 @@ app.get('/getcurrentuser', (req,res) => {
 app.get('/auth/me' ,(req, res) => {
     if(req.user.admin === true){
         res.status(200).send(req.user.admin)
-        successRedirect:'http//localhostt:3000/#/admin/home'
+        successRedirect:'http://localhost:3000/#/admin/home'
     }else{
         res.status(401).send('Unauthorized')
     }
