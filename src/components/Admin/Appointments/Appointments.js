@@ -97,7 +97,7 @@ export default class AdminPage extends Component {
                 date: '',
                 time: '',
                 notes: '',
-                // editpopup: false
+                editpopup: false
             })
         })
     }
@@ -194,7 +194,19 @@ export default class AdminPage extends Component {
                         <input type='firstname' name = 'firstname' value = {this.state.firstname} onChange = {this.handleChange} className='input' placeholder = 'Firstname'/>
                         <input type='lastname' name = 'lastname' value = {this.state.lastname} onChange = {this.handleChange} className='input' placeholder = 'Lastname'/>
                         <input type='phonenumber' name = 'phonenumber' value = {this.state.phonenumber} onChange = {this.handleChange} className='input' placeholder = 'Phone Number'/>
-                        <input type='text' name = 'service' value = {this.state.service} onChange = {this.handleChange} className='input' placeholder = 'Service'/>
+                        <select
+                            type='text'
+                            className='input'
+                            placeholder = 'Service'
+                            name = 'service'
+                            value = {this.state.service}
+                            onChange = {this.handleChange}
+                        >
+                            <option hidden>Service</option>
+                            <option>Hair Cut</option>
+                            <option>Eyelashes</option>
+                            <option>Color</option>
+                        </select>
                         <input
                             type = 'date'
                             className = 'input'
