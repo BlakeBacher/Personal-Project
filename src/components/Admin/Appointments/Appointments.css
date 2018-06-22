@@ -82,10 +82,10 @@
 }
 .popup{
     background-color: #000000e7;
-    height: 520px;
+    height: 555px;
     width: 330px;
     position: fixed;
-    top: 0;
+    top: 40px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -94,4 +94,17 @@
 .nopopup{
     /* top: -1500px; */
     display: none;
+}
+#notespopup{
+    height: 80px;
+    width: 275px;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 2px;
+    margin: auto;
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 20px;
+    padding: 5px;
+    display: flex;
 }

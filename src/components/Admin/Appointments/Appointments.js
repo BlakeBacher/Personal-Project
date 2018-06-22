@@ -10,6 +10,7 @@ export default class AdminPage extends Component {
 
         this.state = {
             appointments:[],
+            id: 0,
             firstname:'',
             lastname:'',
             phonenumber:'',
@@ -25,7 +26,7 @@ export default class AdminPage extends Component {
         this.addAppointment = this.addAppointment.bind(this)
         this.deleteAppointment = this.deleteAppointment.bind(this)
     }
-    handlePopUp(e, i){
+    handlePopUp(e){
         this.setState({
             editpopup: !this.state.editpopup,
             firstname: e.firstname,
@@ -34,7 +35,8 @@ export default class AdminPage extends Component {
             service: e.service,
             date: e.date,
             time: e.time,
-            notes: e.notes
+            notes: e.notes,
+            id: e.id
         })
     }
     cancel(){
@@ -78,6 +80,7 @@ export default class AdminPage extends Component {
         })}
     }
     editAppointment(id){
+        this.setState({editpopup: false})
         let body = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
@@ -96,8 +99,7 @@ export default class AdminPage extends Component {
                 service: '',
                 date: '',
                 time: '',
-                notes: '',
-                editpopup: false
+                notes: ''
             })
         })
     }
@@ -113,7 +115,7 @@ export default class AdminPage extends Component {
                     <p>Time: {e.time}</p>
                     <p>Notes: {e.notes}</p>
 
-                    <button className='itembutton' onClick = {() => { this.handlePopUp(e,i) }}>Edit</button>
+                    <button className='itembutton' onClick = {() => { this.handlePopUp(e) }}>Edit</button>
                     <button className='itembutton' onClick = {(id) => { this.deleteAppointment(e.id) }}>Delete</button>
                 </div>
             </div>
@@ -225,9 +227,16 @@ export default class AdminPage extends Component {
                             <option>7:30 - 8:30AM</option>
                             <option>9:30 - 10:30AM</option>
                         </select>
+                        <textarea 
+                            type = 'text'
+                            id = 'notespopup'
+                            placeholder = 'Notes'
+                            name = 'notes'
+                            value = {this.state.notes}
+                            onChange = {this.handleChange}
+                        />
                         <button className='submit' onClick = {this.cancel}>Cancel</button>
-                        <button className = 'submit' onClick = {(id) => {this.editAppointment(id)}}>Update</button> 
-                            {/* this will handle our on click for updating */}
+                        <button className = 'submit' onClick = {(id) => {this.editAppointment(this.state.id)}}>Update</button> 
                     </div> 
                     
                     {mappedappointments}
