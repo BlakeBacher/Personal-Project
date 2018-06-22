@@ -15,11 +15,13 @@ export default class AdminPage extends Component {
             service:'',
             date:'',
             time:'',
-            notes:''
+            notes:'',
+            editpopup: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment = this.addAppointment.bind(this)
         this.deleteAppointment = this.deleteAppointment.bind(this)
+        this.test = this.test.bind(this)
     }
     componentDidMount(){
         axios.get('/api/getappointments').then((res) => {
@@ -50,6 +52,29 @@ export default class AdminPage extends Component {
             this.setState({appointments: res.data})
         })}
     }
+    editAppointment(id){
+        let body = {
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            phonenumber: this.state.phonenumber,
+            service: this.state.service,
+            date: this.state.date,
+            time: this.state.time,
+            notes: this.state.notes
+        }
+        axios.put(`/api/editappointment/${id}`, body).then(res => {
+            this.setState({
+                appointments: res.data,
+                firstname:'',
+                lastname: '',
+                phonenumber: '',
+                service: '',
+                date: '',
+                time: '',
+                notes: ''
+            })
+        })
+    }
 
     render() {
         let mappedappointments = this.state.appointments.map((e, i) => 
@@ -61,10 +86,10 @@ export default class AdminPage extends Component {
                     <p>Date: {e.date}</p>
                     <p>Time: {e.time}</p>
                     <p>Notes: {e.notes}</p>
-                    <button className='itembutton'>Edit</button>
-                    <button className='itembutton' onClick = {(id)=> { this.deleteAppointment(e.id)}}>Delete</button>
-                </div> 
-            </div> 
+                    <button className='itembutton' onClick = {(id) => { this.editAppointment(e.id) }}>Edit</button>
+                    <button className='itembutton' onClick = {(id) => { this.deleteAppointment(e.id) }}>Delete</button>
+                </div>
+            </div>
         )
         return (
             <div>

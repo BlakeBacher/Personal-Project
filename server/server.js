@@ -102,7 +102,7 @@ app.post('/api/addappointment', controller.addappointment)
 app.post('/api/addblogpost', controller.addblogpost)
 app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 app.delete('/api/deleteblogpost/:id', controller.deleteblogpost)
-
+app.put('/api/editappointment/:id' , controller.editappointment)
 // app.post('/api/addpost', controller.addpost)
    
     

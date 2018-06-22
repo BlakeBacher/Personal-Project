@@ -80,3 +80,10 @@
     margin: auto;
     margin-top: 20px;
 }
+.popup{
+    background-color: red;
+    height: 300px;
+    width: 300px;
+    z-index: 11;
+    position: absolute;
+}
