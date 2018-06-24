@@ -8,11 +8,18 @@ export default class AdminBlog extends Component {
         super()
 
         this.state = {
+            id: 0,
             title:'',
             blogpost:'',
-            posts:[]
+            posts:[],
+            editpopup: false
         }
         this.handleChange = this.handleChange.bind(this)
+        this.cancel = this.cancel.bind(this)
+        this.addBlogPost = this.addBlogPost.bind(this)
+        // this.deleteblogpost = this.deleteblog.bind(this)
+        this.handlePopUp = this.handlePopUp.bind(this)
+        this.editBlogPost = this.editBlogPost.bind(this)
     }
     componentDidMount(){
         axios.get('/api/blogposts').then((res) => {
@@ -21,6 +28,21 @@ export default class AdminBlog extends Component {
     }
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
+    }
+    handlePopUp(e){
+        this.setState({
+            id: e.id,
+            title: e.title,
+            blogpost: e.post,
+            editpopup: !this.state.editpopup
+        })
+    }
+    cancel(){
+        this.setState({
+            editpopup: false,
+            title: '',
+            blogpost:''
+        })
     }
     addBlogPost(){
         let body = {
@@ -38,6 +60,20 @@ export default class AdminBlog extends Component {
             this.setState({posts: res.data})
         })}
     }
+    editBlogPost(id){
+        this.setState({editpopup: false})
+        let body = {
+            title: this.state.title,
+            post: this.state.blogpost
+        }
+        axios.put(`/api/editblogpost/${id}`, body).then(res => {
+            this.setState({
+                posts: res.data,
+                title: '',
+                blogpost:''
+            })
+        })
+    }
 
     render() {
         let mappedposts = this.state.posts.map((e,i) => 
@@ -46,7 +82,7 @@ export default class AdminBlog extends Component {
                 <br/>
                 {e.post}
                 <br/>
-                <button className='buttons'>Edit</button>
+                <button className='buttons' onClick = {() =>  { this.handlePopUp(e) }}>Edit</button>
                 <button className='buttons' onClick = {(id) => {this.deleteblogpost(e.id)}}>Delete</button>
             </div> 
         )
@@ -57,6 +93,12 @@ export default class AdminBlog extends Component {
                     <input type='text' name = 'title' value = {this.state.title} onChange = {this.handleChange} className='input' placeholder = 'Title'/>
                     <textarea type='text' name = 'blogpost' value = {this.state.blogpost} onChange = {this.handleChange} id='blogpost' placeholder = 'Content'/>
                     <button className='postbutton' onClick = {() => {this.addBlogPost()}}>Post</button>
+                    <div className = {this.state.editpopup ? 'popup animated fadeInUp' : 'nopopup animated fadeOutUp'}>
+                        <input type='text' name = 'title' className='input' placeholder = 'Title' value = {this.state.title} onChange = {this.handleChange}/>
+                        <textarea type='text' name = 'blogpost' id='blogpost' placeholder = 'Content' value = {this.state.blogpost} onChange = {this.handleChange}/>
+                        <button className='submit' onClick = {this.cancel}>Cancel</button>
+                        <button className = 'submit' onClick = {(id) => {this.editBlogPost(this.state.id)}}>Update</button> 
+                    </div>
                     {mappedposts}
                 </div>
             </div> 

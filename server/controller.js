@@ -75,6 +75,15 @@ module.exports = {
     db.edit_appointment(id, firstname, lastname, phonenumber, service, date, time, notes)
         .then(appointment => res.status(200).send(appointment))
         .catch(x => res.status(500).send(x))
+    },
+    editblogpost: (req, res) => {
+        const db = req.app.get('db')
+        const id = req.params.id
+        const {title, post} = req.body
+
+        db.edit_blog_post(id, title, post)
+        .then(posts => res.status(200).send(posts))
+        .catch(x => res.status(500).send(x))
     }
 
 }

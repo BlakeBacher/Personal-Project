@@ -17,6 +17,7 @@ export default class Blog extends Component {
             this.setState({posts: res.data})
         })
     }
+    
 
     render() {
         console.log(this.state)

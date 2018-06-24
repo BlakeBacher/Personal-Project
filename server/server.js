@@ -98,14 +98,12 @@ app.get('/auth/me' ,(req, res) => {
 app.get('/getphotos', controller.getposts)
 app.get('/api/getappointments', controller.getappointments)
 app.get('/api/blogposts', controller.getblogposts)
-// app.get('/api/getblogposts' ,controller.getblogpostsclient)
 app.post('/api/addappointment', controller.addappointment)
 app.post('/api/addblogpost', controller.addblogpost)
 app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 app.delete('/api/deleteblogpost/:id', controller.deleteblogpost)
 app.put('/api/editappointment/:id' , controller.editappointment)
-// app.post('/api/addpost', controller.addpost)
-   
+app.put('/api/editblogpost/:id', controller.editblogpost)   
     
 const port = 3030
 app.listen(SERVER_PORT, () => {

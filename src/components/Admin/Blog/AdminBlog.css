@@ -70,3 +70,36 @@
     margin-left: 5px;
     margin-top: 10px;
 }
+.submit{
+    background-color: whitesmoke;
+    width: 100px;
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    box-shadow: 3px 3px 10px grey;
+    border-radius: 15px;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    }
+.submit:active{
+    box-shadow: 5px 5px 10px grey;
+}
+.popup{
+    background-color: #000000e7;
+    height: 555px;
+    width: 330px;
+    position: fixed;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.nopopup{
+    /* top: -1500px; */
+    display: none;
+}

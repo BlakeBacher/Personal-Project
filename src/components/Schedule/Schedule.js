@@ -38,6 +38,7 @@ export default class Schedule extends Component {
             this.props.history.push('/home')
         })
     }
+    
 
 
     render() {
