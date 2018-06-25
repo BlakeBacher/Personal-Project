@@ -43,12 +43,12 @@ passport.use(new Auth0Strategy({
 }, (accessToken, refreshToken, extraParams, profile, done) => {
     // done(null, profile); this is for testing
         const db = app.get('db')
-        let{  id, nickname, name, picture } = profile;
+        let{  id, nickname, displayName, picture } = profile;
         db.find_user([id]).then(user => {
             if(user[0]) {
                 done(null, user[0].id)
             } else {
-                db.create_user([id, nickname, name, picture]).then((createdUser) => {
+                db.create_user([id, nickname, displayName, picture]).then((createdUser) => {
                     done(null, createdUser[0].id)
                 })
             }
@@ -72,10 +72,9 @@ app.get('/auth/logout', (req, res) => {
     req.logOut();
     res.redirect(`http://${process.env.DOMAIN}/v2/logout?returnTo=http://localhost:3000`)
 })
-app.get('/login', passport.authenticate('auth0', {connection: 'instagram'})); 
+app.get('/login', passport.authenticate('auth0', {connection: 'google-oauth2'})); 
 app.get('/login/callback', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:3000/#/admin/home'
-    ///////////////////////////////////////////////////////////////////ASK MASON ABOUT THIS ////////////////////////////////////////////////////////////////////////////////////////////////////
 }))
 app.get('/getcurrentuser', (req,res) => {
     if(req.user){

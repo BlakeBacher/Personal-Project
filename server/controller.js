@@ -46,8 +46,9 @@ module.exports = {
     addblogpost:(req, res) => {
         const db = req.app.get('db')
         const {title, blogpost} = req.body
+        let id = req.user.id
 
-        db.add_blog_post(title, blogpost)
+        db.add_blog_post(title, blogpost, id)
         .then(posts => res.status(200).send(posts))
         .catch(x => res.status(500).send(x))
     },

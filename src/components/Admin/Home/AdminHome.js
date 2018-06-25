@@ -40,8 +40,8 @@ export default class Home extends Component {
                 <AdminNav/>
                 <div className = 'home'>
                     <div className = 'userinfo'>
-                        <div><img alt = '' className = 'currentuserphoto' src = {this.state.currentuser.profile_picture}/></div>
-                        <div>Hi, {this.state.currentuser.username}!</div>
+                        <div><img alt = '' className = 'currentuserphoto' src = {this.state.currentuser.picture}/></div>
+                        <div>Hi, {this.state.currentuser.displayname}!</div>
                         <br/>
                         {/* <p>Welcome to KJOSTYLES! Here you can schedule appointments, look at my most recent work or check out my blog.</p> */}
                     </div> 

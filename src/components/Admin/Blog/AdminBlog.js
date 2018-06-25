@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AdminNav from './../NavBar/AdminNav'
 import './AdminBlog.css'
 import axios from 'axios'
+import moment from 'moment'
 
 export default class AdminBlog extends Component {
     constructor(){
@@ -12,12 +13,11 @@ export default class AdminBlog extends Component {
             title:'',
             blogpost:'',
             posts:[],
-            editpopup: false
+            editpopup: false,
         }
         this.handleChange = this.handleChange.bind(this)
         this.cancel = this.cancel.bind(this)
         this.addBlogPost = this.addBlogPost.bind(this)
-        // this.deleteblogpost = this.deleteblog.bind(this)
         this.handlePopUp = this.handlePopUp.bind(this)
         this.editBlogPost = this.editBlogPost.bind(this)
     }
@@ -52,6 +52,7 @@ export default class AdminBlog extends Component {
         axios.post('/api/addblogpost', body).then((res) => {
             this.setState({posts: res.data, title:'', blogpost:''})
         })
+        
     }
     deleteblogpost(id){
         let result = window.confirm('Are you sure you want to delete this blog post?')
@@ -75,6 +76,7 @@ export default class AdminBlog extends Component {
         })
     }
 
+
     render() {
         let mappedposts = this.state.posts.map((e,i) => 
             <div key = {i} className = 'post'>
@@ -82,10 +84,16 @@ export default class AdminBlog extends Component {
                 <br/>
                 {e.post}
                 <br/>
+                <div className = 'postinfo'>
+                    <div className = 'postname'>{e.displayname}</div>
+                    <div className = 'dateandtime'>{moment(e.date).format('M/D/YY')}</div>
+                    <div className = 'dateandtime'>{moment(e.date).format('h:mm')}</div> 
+                </div> 
+                <br/>
                 <button className='buttons' onClick = {() =>  { this.handlePopUp(e) }}>Edit</button>
                 <button className='buttons' onClick = {(id) => {this.deleteblogpost(e.id)}}>Delete</button>
             </div> 
-        )
+        )  
         return (
             <div>
                 <AdminNav/>

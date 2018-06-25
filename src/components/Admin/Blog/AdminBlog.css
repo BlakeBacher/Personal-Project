@@ -103,3 +103,15 @@
     /* top: -1500px; */
     display: none;
 }
+.postinfo{
+    color: grey;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.postname{
+ float: left;
+}
+.dateandtime{
+    float: right;
+    margin-left: 6px;
+}
