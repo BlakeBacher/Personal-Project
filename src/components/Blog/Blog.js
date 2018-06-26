@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from './../Navbar/Navbar'
 import './Blog.css'
 import axios from 'axios'
+import moment from 'moment'
 
 export default class Blog extends Component {
     constructor(){
@@ -26,6 +27,11 @@ export default class Blog extends Component {
                 <div className = 'blogposttitle'>{e.title}</div>
                 <br/>
                 {e.post}
+                <div className = 'postinfo'>
+                    <div className = 'postname'>{e.displayname}</div>
+                    <div className = 'dateandtime'>{moment(e.date).format('M/D/YY')}</div>
+                    <div className = 'dateandtime'>{moment(e.date).format('h:mm')}</div> 
+                </div> 
             </div> 
         )
         return (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../Navbar/Navbar'
 import './Schedule.css'
-// import DatePicker from './Datepicker'
 import axios from 'axios'
 
 
@@ -24,22 +23,29 @@ export default class Schedule extends Component {
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
     }
-    addAppointment(){
-        let body = {
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            phonenumber: this.state.phonenumber,
-            service: this.state.service,
-            date: this.state.date,
-            time: this.state.time
+    addAppointment(e){
+        e.preventDefault() //this allows us to not refresh the page after they clicked okay on the alert.
+        if(this.state.firstname === ''||
+                this.state.lastname === ''||
+                this.state.phonenumber === ''||
+                this.state.service === '' ||
+                this.state.date === ''||
+                this.state.time === ''){
+            alert('Please fill out form.');
+        }else{
+            let body = {
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                phonenumber: this.state.phonenumber,
+                service: this.state.service,
+                date: this.state.date,
+                time: this.state.time
+            }
+            axios.post('/api/addappointment', body);
+            window.alert('Thank you for scheduling an appointment!');
+            this.props.history.push('/home');
         }
-        axios.post('/api/addappointment', body).then(() => {
-            alert('Thank you for scheduling an appointment!')
-            this.props.history.push('/home')
-        })
     }
-    
-
 
     render() {
         return (
@@ -55,6 +61,7 @@ export default class Schedule extends Component {
                             name = 'firstname'
                             value = {this.state.firstname}
                             onChange = {this.handleChange}
+                            required
                         />
                         <input 
                             type='text'
@@ -63,6 +70,7 @@ export default class Schedule extends Component {
                             name = 'lastname'
                             value = {this.state.lastname}
                             onChange = {this.handleChange}
+                            required
                         />
                         <input 
                             type='tel' 
@@ -71,8 +79,10 @@ export default class Schedule extends Component {
                             name = 'phonenumber' 
                             value = {this.state.phonenumber} 
                             onChange = {this.handleChange}
+                            required
                         />
                         <select
+                            required
                             type='text'
                             className='picker padding'
                             placeholder = 'Service'
@@ -85,12 +95,6 @@ export default class Schedule extends Component {
                             <option>Eyelashes</option>
                             <option>Color</option>
                         </select>
-                        {/* <DatePicker
-                            className='picker'
-                            value ={this.state.date}
-                            name = 'date'
-                            onChange = {this.handleChange}
-                        /> */}
                         <input
                             type = 'date'
                             className = ''
@@ -98,8 +102,10 @@ export default class Schedule extends Component {
                             name = 'date'
                             value = {this.state.date}
                             onChange = {this.handleChange}
+                            required
                         />
                         <select 
+                            required
                             className = 'picker padding'
                             name = 'time' 
                             value ={this.state.time} 
@@ -110,7 +116,7 @@ export default class Schedule extends Component {
                             <option>9:30 - 10:30AM</option>
                         </select> 
 
-                        <button className='submit' onClick = {this.addAppointment}>Submit</button>
+                        <button className='submit' onClick = {(e)=> { this.addAppointment(e)}}>Submit</button>
                     </form>
                 </div> 
             </div>

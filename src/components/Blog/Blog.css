@@ -17,3 +17,17 @@
 .blogposttitle{
     font-size: 20px;
 }
+.postinfo{
+    color: grey;
+    font-size: 14px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.postname{
+ float: left;
+}
+.dateandtime{
+    float: right;
+    margin-left: 6px;
+}
