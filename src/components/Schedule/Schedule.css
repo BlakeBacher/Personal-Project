@@ -50,3 +50,11 @@ input{
 .submit:active{
     box-shadow: 5px 5px 10px grey;
 }
+.phonegreen:focus{
+    color: green;
+    background-color: rgb(185, 255, 185)
+}
+.phonered{
+    background-color: rgb(255, 184, 184);
+    
+}

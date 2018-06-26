@@ -85,7 +85,24 @@ module.exports = {
         db.edit_blog_post(id, title, post)
         .then(posts => res.status(200).send(posts))
         .catch(x => res.status(500).send(x))
-    }
+    },
+    sendtext:(req, res) => {
+        const db = req.app.get('db')
+        
+        db.get_user_phonenumber()
 
+        const accountSid = `${process.env.TWILIO_SID}`;
+        const authToken = `${process.env.TWILIO_TOKEN}`;
+        const client = new twilio(accountSid, authToken);
+        const user = ''
+        const phonenumber = ''
+
+        client.messages.create({
+            body: 'Testing',
+            to: '',  // Text this number
+            from: process.env.TWILIO_NUMBER // From a valid Twilio number
+        })
+        .then((message) => console.log(message.sid));
+    }
 }
 

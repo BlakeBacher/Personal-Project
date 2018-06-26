@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const express = require('express')
     , session = require('express-session')
     , passport = require('passport')
@@ -6,6 +7,7 @@ const express = require('express')
     , massive = require('massive')
     , controller = require('./controller')
     ,bodyparser = require('body-parser')
+    ,twilio = require('twilio')
 
 
     const { 
@@ -16,6 +18,8 @@ const express = require('express')
         CLIENT_SECRET,
         CALLBACK_URL,
         CONNECTION_STRING,
+        // TWILIO_SID,
+        // TWILIO_TOKEN
     } = process.env;
 
      massive(CONNECTION_STRING).then(db => {
@@ -93,7 +97,7 @@ app.get('/auth/me' ,(req, res) => {
 })
     
 
-
+app.get('/api/sendtext', controller.sendtext)
 app.get('/getphotos', controller.getposts)
 app.get('/api/getappointments', controller.getappointments)
 app.get('/api/blogposts', controller.getblogposts)
@@ -102,9 +106,15 @@ app.post('/api/addblogpost', controller.addblogpost)
 app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 app.delete('/api/deleteblogpost/:id', controller.deleteblogpost)
 app.put('/api/editappointment/:id' , controller.editappointment)
-app.put('/api/editblogpost/:id', controller.editblogpost)   
+app.put('/api/editblogpost/:id', controller.editblogpost)
     
 const port = 3030
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on port: `, SERVER_PORT)
 })
+
+
+
+
+
+

@@ -3,7 +3,6 @@ import Nav from '../Navbar/Navbar'
 import './Schedule.css'
 import axios from 'axios'
 
-
 export default class Schedule extends Component {
     constructor(){
         super()
@@ -14,23 +13,34 @@ export default class Schedule extends Component {
             phonenumber:'',
             service:'',
             date:'',
-            time:''
+            time:'',
+            check: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment =  this.addAppointment.bind(this)
+        this.numbercheck = this.numbercheck.bind(this)
     }
 
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
     }
+    numbercheck(e){
+        this.setState({phonenumber: e.target.value, check: false})
+        let phone = (e.target.value.replace(/\D/g,''))
+        if(phone.length === 10){
+            this.setState({check: true})
+        }else{
+            this.setState({check: false})
+        }
+    }
     addAppointment(e){
-        e.preventDefault() //this allows us to not refresh the page after they clicked okay on the alert.
         if(this.state.firstname === ''||
                 this.state.lastname === ''||
                 this.state.phonenumber === ''||
                 this.state.service === '' ||
                 this.state.date === ''||
-                this.state.time === ''){
+                this.state.time === '' ||
+                this.state.check === false){
             alert('Please fill out form.');
         }else{
             let body = {
@@ -74,11 +84,12 @@ export default class Schedule extends Component {
                         />
                         <input 
                             type='tel' 
-                            className='' 
+                            className= {this.state.check === false ? 'phonered' : 
+                                this.state.check === true ? 'phonegreen' : ''} 
                             placeholder = 'Phone Number' 
                             name = 'phonenumber' 
                             value = {this.state.phonenumber} 
-                            onChange = {this.handleChange}
+                            onChange = {this.numbercheck}
                             required
                         />
                         <select
@@ -116,7 +127,15 @@ export default class Schedule extends Component {
                             <option>9:30 - 10:30AM</option>
                         </select> 
 
-                        <button className='submit' onClick = {(e)=> { this.addAppointment(e)}}>Submit</button>
+                        <button className='submit' onClick = {(e)=> { 
+                            e.preventDefault()
+                            //this allows us to not refresh the page after they clicked okay on the alert.
+                            if(this.state.check === false){
+                                alert('Invalid phone number.')
+                            }else{
+                                this.addAppointment(e)
+                            }}}>Submit
+                        </button>
                     </form>
                 </div> 
             </div>
