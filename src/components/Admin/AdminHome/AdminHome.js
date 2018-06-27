@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from '../Navbar/Navbar'
-import './Home.css'
+import Nav from './../NavBar/AdminNav'
+import './AdminHome.css'
 
 export default class Home extends Component {
     render() {
@@ -8,7 +8,7 @@ export default class Home extends Component {
             <div>
                 <Nav/>
                 <div className = 'home'>
-                   Home
+                  Admin Home
                 </div>
             </div> 
         )

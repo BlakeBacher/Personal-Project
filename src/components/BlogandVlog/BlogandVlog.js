@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './../Navbar/Navbar'
-import './Blog.css'
+import './BlogandVlog.css'
 import axios from 'axios'
 import moment from 'moment'
 

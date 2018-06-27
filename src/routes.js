@@ -3,18 +3,22 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import axios from 'axios'
 
 //Admins
-import AdminHome from './components/Admin/Home/AdminHome'
+import AdminHome from './components/Admin/AdminHome/AdminHome'
+import AdminInstagram from './components/Admin/AdminInstagram/AdminInstagram'
+import AdminPricing from './components/Admin/AdminPricing/AdminPricing'
 import Appointments from './components/Admin/Appointments/Appointments'
-import AdminBlog from './components/Admin/Blog/AdminBlog'
+import AdminBlogandVlog from './components/Admin/AdminBlogandVlog/AdminBlogandVlog'
+import AdminProducts from './components/Admin/AdminProducts/AdminProducts'
 
 
 //Users
-import Login from './components/Login/Login'
 import Home from './components/Home/Home'
-import Schedule from './components/Schedule/Schedule'
-import About from './components/About/About'
-import Contact from './components/Contact/Contact'
-import Blog from './components/Blog/Blog'
+import Login from './components/Login/Login'
+import Instagram from './components/Instagram/Instagram'
+import BookAppointment from './components/BookAppointment/BookAppointment'
+import Pricing from './components/Pricing/Pricing'
+import Products from './components/Products/Products'
+import BlogandVlog from './components/BlogandVlog/BlogandVlog'
 
 
 ///////////this is how to make an admin login page.///////////
@@ -55,13 +59,17 @@ class PrivateRoute extends Component {
 export default(
     <Switch>
         <Route exact path='/' component={Login} />
-        <Route path='/home' component={Home} />
-        <Route path='/schedule' component={Schedule} />
-        <Route path='/about' component={About} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/blog' component={Blog}/>
+		<Route path='/home' component={Home} />
+        <Route path='/instagram' component={Instagram} />
+        <Route path='/pricing' component={Pricing} />
+        <Route path='/blogandvlog' component={BlogandVlog}/>
+        <Route path='/products' component={Products} />
+        <Route path='/bookappointment' component={BookAppointment} />
 		<PrivateRoute path = '/admin/home' component = {AdminHome}/>
-		<PrivateRoute  path = '/admin/blog' component = {AdminBlog}/>
-        <PrivateRoute exact path='/admin/Appointments' component={Appointments}/>
+		<PrivateRoute path = '/admin/instagram' component = {AdminInstagram}/>
+		<PrivateRoute exact path='/admin/pricing' component={AdminPricing}/>
+		<PrivateRoute  path = '/admin/blogandvlog' component = {AdminBlogandVlog}/>
+        <PrivateRoute exact path='/admin/appointments' component={Appointments}/>
+		<PrivateRoute exact path='/admin/products' component={AdminProducts}/>
     </Switch>
 )

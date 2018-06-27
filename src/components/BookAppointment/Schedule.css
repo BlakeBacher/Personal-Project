@@ -1,0 +1,14 @@
+.bookappointment{
+    padding-top: 58px;
+    background-image: var(--appbackground);
+    background-repeat: repeat;
+    height: 100vh;
+}
+
+.phonegreen:focus{
+    color: green;
+    background-color: rgb(185, 255, 185)
+}
+.phonered{
+    background-color: rgb(255, 184, 184);
+}

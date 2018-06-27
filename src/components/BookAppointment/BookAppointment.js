@@ -80,12 +80,12 @@ export default class Schedule extends Component {
         return (
             <div>
                 <Nav/>
-                <div className = 'schedule'>Schedule an appointment here
+                <div className = 'bookappointment'>Fill out the form below to book an appointment!
                     <br/>
                     <form>
                         <input 
                             type='text'
-                            className=''
+                            className='input'
                             placeholder = 'Firstname'
                             name = 'firstname'
                             value = {this.state.firstname}
@@ -94,7 +94,7 @@ export default class Schedule extends Component {
                         />
                         <input 
                             type='text'
-                            className=''
+                            className='input'
                             placeholder = 'Lastname'
                             name = 'lastname'
                             value = {this.state.lastname}
@@ -103,8 +103,8 @@ export default class Schedule extends Component {
                         />
                         <input 
                             type='tel' 
-                            className= {this.state.check === false ? 'phonered' : 
-                                this.state.check === true ? 'phonegreen' : ''} 
+                            className= {this.state.check === null ? 'input' : this.state.check === false ? 'input phonered' : 
+                                this.state.check === true ? 'input phonegreen' : ''} 
                             placeholder = 'Phone Number' 
                             name = 'phonenumber' 
                             value = {this.state.phonenumber} 
@@ -114,7 +114,7 @@ export default class Schedule extends Component {
                         <select
                             required
                             type='text'
-                            className='picker padding'
+                            className='input'
                             placeholder = 'Service'
                             name = 'service'
                             value = {this.state.service}
@@ -127,7 +127,7 @@ export default class Schedule extends Component {
                         </select>
                         <input
                             type = 'date'
-                            className = ''
+                            className = 'input'
                             placeholder = 'Date'
                             name = 'date'
                             value = {this.state.date}
@@ -136,7 +136,7 @@ export default class Schedule extends Component {
                         />
                         <select 
                             required
-                            className = 'picker padding'
+                            className = 'input'
                             name = 'time' 
                             value ={this.state.time} 
                             onChange = {this.handleChange}
@@ -156,7 +156,7 @@ export default class Schedule extends Component {
                             }}}>Submit
                         </button>
                     </form>
-                        <button className='' onClick ={this.sendText()}>Send</button>
+                        <button className='button' onClick ={this.sendText()}>Testing</button>
                 </div> 
             </div>
         )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdminNav from './../NavBar/AdminNav'
-import './AdminBlog.css'
+import './AdminBlogandVlog.css'
 import axios from 'axios'
 import moment from 'moment'
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Nav from '../Navbar/Navbar'
-import './Contact.css'
+import './Products.css'
 
 export default function Contact (){
      return(
         <div>
             <Nav/>
-            <div className = 'contact'>Contact</div> 
+            <div className = 'products'>Products</div> 
         </div>
      )
 }

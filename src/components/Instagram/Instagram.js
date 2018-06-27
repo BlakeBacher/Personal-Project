@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AdminNav from './../NavBar/AdminNav';
+import Nav from '../Navbar/Navbar';
 import axios from 'axios';
-import './AdminHome.css'
+import './Instagram.css'
 
 
 export default class Home extends Component {
@@ -37,13 +37,13 @@ export default class Home extends Component {
            
         return (
             <div>
-                <AdminNav/>
-                <div className = 'home'>
+                <Nav/>
+                <div className = 'instagram'>
                     <div className = 'userinfo'>
                         <div><img alt = '' className = 'currentuserphoto' src = {this.state.currentuser.picture}/></div>
                         <div>Hi, {this.state.currentuser.displayname}!</div>
                         <br/>
-                        {/* <p>Welcome to KJOSTYLES! Here you can schedule appointments, look at my most recent work or check out my blog.</p> */}
+                        <p>Welcome to KJOSTYLES! Here you can schedule appointments, look at my most recent work or check out my blog.</p>
                     </div> 
                     <br/>
                 {mappedposts}

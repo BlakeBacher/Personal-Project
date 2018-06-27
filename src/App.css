@@ -90,7 +90,7 @@ table {
 
 
 
-
+/* Main app */
 
 
 .App {
@@ -147,38 +147,7 @@ table {
 .smallbutton:active{
 	box-shadow: var(--activeboxshadow);
 }
-.dropdown{
-    padding: 20px;
-	padding-top: 50px;
-	height: 100%;
-	width: 100%;
-	z-index: 9;
-	position: fixed;
-	background-color: var(--navdropdown);
-}
-.dropdownbutton{
-    height: 40px;
-    width: 200px;
-    margin: auto;
-	margin-top: 30px;
-	margin-bottom: 30px;
-    font-size: 20px;
-    color: black;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-decoration: none;
-	letter-spacing: 2px;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
-}
-.dropdownbutton:active{
-	box-shadow: var(--activeboxshadow);
-}
-.hiddenDD{
-    top: -1500px;
-}
+
 .editpopup{
 	height: 555px;
     width: 330px;
@@ -220,6 +189,7 @@ table {
 
 /* Nav Bar CSS */
 
+
 header{
     background-color: var(--navcolor);
     color: whitesmoke;
@@ -257,4 +227,39 @@ header{
 }
 .bar2{
     transform: rotate(-45deg) translate(4px);
+}
+
+/* Nav Dropdown and Buttons */
+
+.dropdown{
+    padding: 20px;
+	padding-top: 50px;
+	height: 100%;
+	width: 100%;
+	z-index: 9;
+	position: fixed;
+	background-color: var(--navdropdown);
+}
+.dropdownbutton{
+    height: 40px;
+    width: 215px;
+    margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+    font-size: 20px;
+    color: black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+	letter-spacing: 2px;
+	box-shadow: var(--appboxshadow);
+	background-color: var(--inputandbuttonbackcolor);
+}
+.dropdownbutton:active{
+	box-shadow: var(--activeboxshadow);
+}
+.hiddenDD{
+    top: -1500px;
 }
