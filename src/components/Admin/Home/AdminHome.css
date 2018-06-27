@@ -1,3 +1,9 @@
+.home{
+    padding-top: 58px;
+    padding-bottom: 30px;
+    background-image: var(--appbackground);
+    background-repeat: repeat;
+}
 .imgcap{
     box-shadow: 0px 0px 10px #2c2b2b;
     padding: 15px;
@@ -31,12 +37,6 @@
     margin: auto;
     margin-top: 35px;
     border-radius: 10px;
-}
-.home{
-    padding-top: 58px;
-    background-color: rgb(199, 199, 199);
-    /* background-image: url(http://dadatiles.com.au/wp-content/uploads/2016/12/calcatta-white-marble.jpg); */
-    /* background-repeat: no-repeat; */
 }
 .currentuserphoto{
     border-radius: 100px;

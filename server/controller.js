@@ -91,15 +91,15 @@ module.exports = {
         
         db.get_user_phonenumber()
 
-        const accountSid = `${process.env.TWILIO_SID}`;
-        const authToken = `${process.env.TWILIO_TOKEN}`;
+        const accountSid = process.env.TWILIO_SID;
+        const authToken = process.env.TWILIO_TOKEN;
         const client = new twilio(accountSid, authToken);
         const user = ''
         const phonenumber = ''
 
         client.messages.create({
             body: 'Testing',
-            to: '',  // Text this number
+            to: phonenumber,  // Text this number
             from: process.env.TWILIO_NUMBER // From a valid Twilio number
         })
         .then((message) => console.log(message.sid));

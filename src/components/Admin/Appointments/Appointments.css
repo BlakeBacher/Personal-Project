@@ -1,110 +1,16 @@
-.appointments{
+.appointmentsdiv{
     padding-top: 58px;
-    padding-bottom: 50px;
-    background-color: rgb(198, 198, 198);
+    padding-bottom: 30px;
+    background-image: var(--appbackground);
+    background-repeat: repeat;
 }
-.items{
+.appointments{
     background-color: whitesmoke;
     font-size: 20px;
     border-style: solid;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px grey;
+    box-shadow: var(--appboxshadow);
     padding: 10px;
     width: 300px;
     margin: auto;
     margin-top: 20px;
-
-}
-.itembutton{
-    background-color: whitesmoke;
-    height: 30px;
-    width: 70px;
-    border-radius: 5px;
-    margin: auto;
-    margin-left: 5px;
-    margin-top: 10px;
-    font-size: 15px;
-    box-shadow: 2px 2px 5px grey;
-}
-.itembutton:active{
-    background-color: rgb(198, 198, 198);
-}
-.input{
-    height: 40px;
-    width: 275px;
-    border-color: black;
-    border-radius: 10px;
-    border-width: 2px;
-    margin: auto;
-    background-color: whitesmoke;
-    color: black;
-    margin-top: 20px;
-    padding: 5px;
-    display: flex;
-}
-#notes{
-    height: 135px;
-    width: 275px;
-    border-color: black;
-    border-radius: 10px;
-    border-width: 2px;
-    margin: auto;
-    background-color: whitesmoke;
-    color: black;
-    margin-top: 20px;
-    padding: 5px;
-    display: flex;
-}
-.submit{
-    background-color: whitesmoke;
-    width: 100px;
-    padding: 20px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    box-shadow: 3px 3px 10px grey;
-    border-radius: 15px;
-    margin-top: 20px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    }
-.submit:active{
-    box-shadow: 5px 5px 10px grey;
-}
-.break{
-    height: 5px;
-    width: 75%;
-    background-image: url(https://s3.envato.com/files/224166386/preview_image.jpg);
-    margin: auto;
-    margin-top: 20px;
-}
-.popup{
-    background-color: #000000e7;
-    height: 555px;
-    width: 330px;
-    position: fixed;
-    top: 40px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-}
-.nopopup{
-    /* top: -1500px; */
-    display: none;
-}
-#notespopup{
-    height: 80px;
-    width: 275px;
-    border-color: black;
-    border-radius: 10px;
-    border-width: 2px;
-    margin: auto;
-    background-color: whitesmoke;
-    color: black;
-    margin-top: 20px;
-    padding: 5px;
-    display: flex;
 }

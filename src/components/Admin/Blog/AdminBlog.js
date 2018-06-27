@@ -90,8 +90,8 @@ export default class AdminBlog extends Component {
                     <div className = 'dateandtime'>{moment(e.date).format('h:mm')}</div> 
                 </div> 
                 <br/>
-                <button className='buttons' onClick = {() =>  { this.handlePopUp(e) }}>Edit</button>
-                <button className='buttons' onClick = {(id) => {this.deleteblogpost(e.id)}}>Delete</button>
+                <button className='smallbutton' onClick = {() =>  { this.handlePopUp(e) }}>Edit</button>
+                <button className='smallbutton' onClick = {(id) => {this.deleteblogpost(e.id)}}>Delete</button>
             </div> 
         )  
         return (
@@ -100,12 +100,12 @@ export default class AdminBlog extends Component {
                 <div className = 'adminblog'>
                     <input type='text' name = 'title' value = {this.state.title} onChange = {this.handleChange} className='input' placeholder = 'Title'/>
                     <textarea type='text' name = 'blogpost' value = {this.state.blogpost} onChange = {this.handleChange} id='blogpost' placeholder = 'Content'/>
-                    <button className='postbutton' onClick = {() => {this.addBlogPost()}}>Post</button>
-                    <div className = {this.state.editpopup ? 'popup animated fadeInUp' : 'nopopup animated fadeOutUp'}>
+                    <button className='button' onClick = {() => {this.addBlogPost()}}>Post</button>
+                    <div className = {this.state.editpopup ? 'editpopup animated fadeInUp' : 'editpopuphide animated fadeOutUp'}>
                         <input type='text' name = 'title' className='input' placeholder = 'Title' value = {this.state.title} onChange = {this.handleChange}/>
                         <textarea type='text' name = 'blogpost' id='blogpost' placeholder = 'Content' value = {this.state.blogpost} onChange = {this.handleChange}/>
-                        <button className='submit' onClick = {this.cancel}>Cancel</button>
-                        <button className = 'submit' onClick = {(id) => {this.editBlogPost(this.state.id)}}>Update</button> 
+                        <button className='button' onClick = {this.cancel}>Cancel</button>
+                        <button className = 'button' onClick = {(id) => {this.editBlogPost(this.state.id)}}>Update</button> 
                     </div>
                     {mappedposts}
                 </div>

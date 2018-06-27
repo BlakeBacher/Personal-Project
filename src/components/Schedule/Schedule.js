@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Navbar/Navbar'
 import './Schedule.css'
 import axios from 'axios'
+const schedule = require('node-schedule')
 
 export default class Schedule extends Component {
     constructor(){
@@ -19,6 +20,7 @@ export default class Schedule extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment =  this.addAppointment.bind(this)
         this.numbercheck = this.numbercheck.bind(this)
+        this.sendText = this.sendText.bind(this)
     }
 
     handleChange(e){
@@ -55,6 +57,23 @@ export default class Schedule extends Component {
             window.alert('Thank you for scheduling an appointment!');
             this.props.history.push('/home');
         }
+    }
+
+    sendText(){
+        let dateArr = this.state.date.split('-')
+        //  YYYY  MM  DD  HH MM  S
+
+        // this is how to filter time into 10, 30, 12, 30
+        // var filter = test.replace(/[AMP]|\s/g,'')
+        // var newtime = filter.split(/[:-]/);
+
+
+
+
+        var date = new Date(dateArr[0], dateArr[1], dateArr[2], 5, 30, 0);
+        var j = schedule.scheduleJob(date, function(){
+            console.log('The world is going to end today.');
+        });
     }
 
     render() {
@@ -127,7 +146,7 @@ export default class Schedule extends Component {
                             <option>9:30 - 10:30AM</option>
                         </select> 
 
-                        <button className='submit' onClick = {(e)=> { 
+                        <button className='button' onClick = {(e)=> { 
                             e.preventDefault()
                             //this allows us to not refresh the page after they clicked okay on the alert.
                             if(this.state.check === false){
@@ -137,6 +156,7 @@ export default class Schedule extends Component {
                             }}}>Submit
                         </button>
                     </form>
+                        <button className='' onClick ={this.sendText()}>Send</button>
                 </div> 
             </div>
         )

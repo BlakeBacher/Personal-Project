@@ -8,7 +8,7 @@ export default class Login extends Component {
                 <div className = 'logindiv'>
                     <div className='h1'>KjoStyles</div> 
                     <a href = {process.env.REACT_APP_LOGIN}>
-                        <button className='loginbutton'>Login</button>
+                        <button className='button'>Login</button>
                     </a> 
                 </div> 
             </div> 

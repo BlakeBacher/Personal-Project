@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import './Navbar.css'
 import Dropdown from './Dropdown';
-// import {Dropdownmenu, MenuItem} from 'react-bootstrap-dropdown-menu'
-// import {Navdropdown} from 'react-bootstrap'
+
 
 export default class Navbar extends Component{
     constructor(){

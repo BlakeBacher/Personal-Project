@@ -107,7 +107,7 @@ export default class AdminPage extends Component {
     render() {
         let mappedappointments = this.state.appointments.map((e, i) => 
         <div key = {i}>
-                <div className = 'items'>
+                <div className = 'appointments'>
                     <p>Name: {e.firstname} {e.lastname}</p>
                     <p>Phone: {e.phonenumber}</p>
                     <p>Service: {e.service}</p>
@@ -115,15 +115,15 @@ export default class AdminPage extends Component {
                     <p>Time: {e.time}</p>
                     <p>Notes: {e.notes}</p>
 
-                    <button className='itembutton' onClick = {() => { this.handlePopUp(e) }}>Edit</button>
-                    <button className='itembutton' onClick = {(id) => { this.deleteAppointment(e.id) }}>Delete</button>
+                    <button className='smallbutton' onClick = {() => { this.handlePopUp(e) }}>Edit</button>
+                    <button className='smallbutton' onClick = {(id) => { this.deleteAppointment(e.id) }}>Delete</button>
                 </div>
             </div>
         )
         return (
             <div>
                 <AdminNav/>
-                <div className = 'appointments'>
+                <div className = 'appointmentsdiv'>
                 <form>
                         <input 
                             type='text'
@@ -182,23 +182,22 @@ export default class AdminPage extends Component {
                         </select>
                         <textarea 
                             type = 'text'
-                            id = 'notes'
+                            className = 'notesinput'
                             placeholder = 'Notes'
                             name = 'notes'
                             value = {this.state.notes}
                             onChange = {this.handleChange}
                         />
-                        <button className='submit' onClick = {this.addAppointment}>Submit</button>
+                        <button className='button' onClick = {this.addAppointment}>Submit</button>
                     </form>
-                    <div className = 'break'></div>
 
-                    <div className = {this.state.editpopup ? 'popup animated fadeInUp' : 'nopopup animated fadeOutUp'}>
-                        <input type='firstname' name = 'firstname' value = {this.state.firstname} onChange = {this.handleChange} className='input' placeholder = 'Firstname'/>
-                        <input type='lastname' name = 'lastname' value = {this.state.lastname} onChange = {this.handleChange} className='input' placeholder = 'Lastname'/>
-                        <input type='phonenumber' name = 'phonenumber' value = {this.state.phonenumber} onChange = {this.handleChange} className='input' placeholder = 'Phone Number'/>
+                    <div className = {this.state.editpopup ? 'editpopup animated fadeInUp' : 'editpopuphide animated fadeOutUp'}>
+                        <input type='firstname' name = 'firstname' value = {this.state.firstname} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Firstname'/>
+                        <input type='lastname' name = 'lastname' value = {this.state.lastname} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Lastname'/>
+                        <input type='phonenumber' name = 'phonenumber' value = {this.state.phonenumber} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Phone Number'/>
                         <select
                             type='text'
-                            className='input'
+                            id='editpopupinput'
                             placeholder = 'Service'
                             name = 'service'
                             value = {this.state.service}
@@ -211,14 +210,14 @@ export default class AdminPage extends Component {
                         </select>
                         <input
                             type = 'date'
-                            className = 'input'
+                            id ='editpopupinput'
                             placeholder = 'Date'
                             name = 'date'
                             value = {this.state.date}
                             onChange = {this.handleChange}
                         />
                         <select 
-                            className = 'input'
+                            id ='editpopupinput'
                             name = 'time' 
                             value ={this.state.time} 
                             onChange = {this.handleChange}
@@ -229,14 +228,14 @@ export default class AdminPage extends Component {
                         </select>
                         <textarea 
                             type = 'text'
-                            id = 'notespopup'
+                            id ='editpopupnotes'
                             placeholder = 'Notes'
                             name = 'notes'
                             value = {this.state.notes}
                             onChange = {this.handleChange}
                         />
-                        <button className='submit' onClick = {this.cancel}>Cancel</button>
-                        <button className = 'submit' onClick = {(id) => {this.editAppointment(this.state.id)}}>Update</button> 
+                        <button className='smallbutton' onClick = {this.cancel}>Cancel</button>
+                        <button className = 'smallbutton' onClick = {(id) => {this.editAppointment(this.state.id)}}>Update</button> 
                     </div> 
                     
                     {mappedappointments}

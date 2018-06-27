@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './AdminNav.css'
 import Dropdown from './DropdownAdmin';
 
 
