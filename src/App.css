@@ -52,18 +52,18 @@ table {
 }
 
 
-@font-face {
+/* @font-face {
 	font-family: 'Coming Soon';
 	font-style: normal;
 	font-weight: 400;
 	src: local('Coming Soon'), local('ComingSoon'), url(http://themes.googleusercontent.com/static/fonts/comingsoon/v3/myblyOycMnPMGjfPG-DzP50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
-  }
-  @font-face {
+  } */
+  /* @font-face {
 	font-family: 'Dancing Script';
 	font-style: normal;
 	font-weight: 400;
 	src: local('Dancing Script'), local('DancingScript'), url(http://themes.googleusercontent.com/static/fonts/dancingscript/v3/DK0eTGXiZjN6yA8zAEyM2S5FJMZltoAAwO2fP7iHu2o.ttf) format('truetype');
-  }
+  } */
 
 :root{
 		/* main app */
