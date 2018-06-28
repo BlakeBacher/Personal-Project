@@ -22,6 +22,8 @@ const express = require('express')
         // TWILIO_TOKEN
     } = process.env;
 
+    const app = express();
+    app.use(bodyparser.json())
 
     app.use( express.static( `${__dirname}/../build` ) ); //this is for hosting the website
 
@@ -31,8 +33,6 @@ const express = require('express')
         app.set('db', db);
     })
 
-    const app = express();
-    app.use(bodyparser.json())
 
     app.use(session({
         secret: SESSION_SECRET,
