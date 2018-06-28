@@ -1,4 +1,16 @@
-.products{
+.adminproducts{
     padding-top: 58px;
+    padding-bottom: 30px;
     background-image: var(--appbackground);
+    height: 100%;
+}
+.productsinput{
+    height: 250px;
+	width: 275px;
+	margin: auto;
+	color: black;
+	padding: 5px;
+	display: flex;
+	box-shadow: var(--appboxshadow);
+	background-color: var(--inputandbuttonbackcolor);
 }

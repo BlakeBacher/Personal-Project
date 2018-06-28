@@ -8,32 +8,37 @@ export default class Products extends Component{
         super()
 
         this.state = {
-            products:[]
+            products:'',
+            hair:'',
+            chemicaltreatment:'',
+            lashes:''
         }
     }
 
     componentDidMount(){
         axios.get('/api/getproducts').then((res) => {
-            let resdata = res.data[0].products
-            let string = resdata.split( "\n" )
-            this.setState({products: string})
+            this.setState({
+                products: res.data[0].products,
+                hair: res.data[0].hair,
+                chemicaltreatment: res.data[0].chemicaltreatment,
+                lashes: res.data[0].lashes,
+            })
         })
     }
 
     render(){
-        let mappedproducts = this.state.products.map((e,i) => 
-            <div key = {i} className = 'mappedproducts'>{e}</div> 
-        )
      return(
         <div>
             <Nav/>
             <div className = 'products'>
-                <div className = 'textbox'>
-                Products Currently Avalible:
-                <br/>
-                <br/>
-                    {mappedproducts}
-                </div> 
+                <div className = 'productsinputtitle'>Product</div>
+                <textarea type='text' className='productsinput' value = {this.state.products}/>
+                <div className = 'productsinputtitle'>Hair</div>
+                <textarea type='text' className='productsinput' value = {this.state.hair}/>
+                <div className = 'productsinputtitle'>Chemical Treatment</div>
+                <textarea type='text' className='productsinput' value = {this.state.chemicaltreatment}/>
+                <div className = 'productsinputtitle'>Lashes</div>
+                <textarea type='text' className='productsinput' value = {this.state.lashes}/>
             </div> 
         </div>
      )

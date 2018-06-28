@@ -126,11 +126,11 @@ export default class Schedule extends Component {
                             onChange = {this.handleChange}
                         >
                             <option hidden>Time</option>
-                            <option value = {[8]}>8:00 - 9:30AM</option>
-                            <option value = {[10]}>10:00 - 11:30AM</option>
-                            <option value = {[12]}>12:00 - 1:30PM</option>
-                            <option value = {[2]}>2:00 - 3:30AM</option>
-                            <option value = {[4]}>4:00 - 5:30AM</option>
+                            <option>8:00 - 9:30AM</option>
+                            <option>10:00 - 11:30AM</option>
+                            <option>12:00 - 1:30PM</option>
+                            <option>2:00 - 3:30AM</option>
+                            <option>4:00 - 5:30AM</option>
                         </select> 
 
                         <button className='button' onClick = {(e)=> { 
@@ -145,7 +145,7 @@ export default class Schedule extends Component {
                             }}}>Submit
                         </button>
                     </form>
-                        <button className='button' onClick ={this.sendText}>Testing</button>
+                        {/* <button className='button' onClick ={this.sendText}>Testing</button> */}
                 </div> 
             </div>
         )

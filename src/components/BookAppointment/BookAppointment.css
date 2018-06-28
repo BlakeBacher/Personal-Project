@@ -1,5 +1,6 @@
 .bookappointment{
     padding-top: 58px;
+    padding-bottom: 30px;
     background-image: var(--appbackground);
     background-repeat: repeat;
     height: 100vh;

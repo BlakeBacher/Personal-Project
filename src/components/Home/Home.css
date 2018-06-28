@@ -2,5 +2,16 @@
     padding-top: 58px;
     padding-bottom: 30px;
     background-image: var(--appbackground);
-    height: 100vh;    /* you may want to delete this when you add the photos to the home page */
+    height: 100%;
+}
+
+.images{
+    height: 150px;
+    width: 150px;
+    display-flex: flex;
+    flex-wrap: wrap;
+    margin:auto;
+    margin: 10px 10px 10px 10px;
+    box-shadow: var(--appboxshadow)
+
 }

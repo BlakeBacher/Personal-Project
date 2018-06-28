@@ -6,8 +6,8 @@ const express = require('express')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
     , controller = require('./controller')
-    ,bodyparser = require('body-parser')
-    // ,twilio = require('twilio')
+    , bodyparser = require('body-parser')
+    , path = require('path')
 
 
     const { 
@@ -21,6 +21,11 @@ const express = require('express')
         // TWILIO_SID,
         // TWILIO_TOKEN
     } = process.env;
+
+
+    app.use( express.static( `${__dirname}/../build` ) ); //this is for hosting the website
+
+
 
      massive(CONNECTION_STRING).then(db => {
         app.set('db', db);
@@ -74,11 +79,11 @@ passport.deserializeUser((primaryKeyID, done) => {
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect(`http://${process.env.DOMAIN}/v2/logout?returnTo=http://localhost:3000`)
+    res.redirect(`http://${process.env.DOMAIN}/v2/logout?returnTo=${process.env.REACT_APP_REDIRECT}`)
 })
 app.get('/login', passport.authenticate('auth0', {connection: 'google-oauth2'})); 
 app.get('/login/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/admin/home'
+    successRedirect: `${process.env.REACT_APP_FRONTEND_URL}#/admin/home`
 }))
 app.get('/getcurrentuser', (req,res) => {
     if(req.user){
@@ -90,7 +95,7 @@ app.get('/getcurrentuser', (req,res) => {
 app.get('/auth/me' ,(req, res) => {
     if(req.user.admin === true){
         res.status(200).send(req.user.admin)
-        successRedirect:'http://localhost:3000/#/admin/home'
+        successRedirect:`${process.env.REACT_APP_FRONTEND_URL}#/admin/home`
     }else{
         res.status(401).send('Unauthorized')
     }
@@ -109,7 +114,11 @@ app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 app.delete('/api/deleteblogpost/:id', controller.deleteblogpost)
 app.put('/api/editappointment/:id' , controller.editappointment)
 app.put('/api/editblogpost/:id', controller.editblogpost)
-app.put('/api/editproducts/:id', controller.editproducts)    
+app.put('/api/editproducts/:id', controller.editproducts)  
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));  //this is for history.push
+});
 
 const port = 3030
 app.listen(SERVER_PORT, () => {

@@ -13,7 +13,7 @@ export default (props) => {
                         <Link to = '/admin/pricing'><li className = 'dropdownbutton border'>Pricing</li></Link>
                         <Link to = '/admin/appointments'><li className = 'dropdownbutton border'>Appointments</li></Link>
                         <Link to = '/admin/products'><li className = 'dropdownbutton border'>Products</li></Link>
-                        <Link to = ''><li href = 'http://localhost:3030/auth/logout' className = 'dropdownbutton border'>Logout</li></Link>
+                        <Link to = ''><li href = {process.env.REACT_APP_LOGOUT} className = 'dropdownbutton border'>Logout</li></Link>
                     </div>
                 </div>
         </div>

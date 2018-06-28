@@ -2,6 +2,7 @@ const axios = require('axios')
 require('dotenv').config()
 const twilio = require('twilio');
 const schedule = require('node-schedule')
+const moment = require('moment')
 
 
 
@@ -54,12 +55,16 @@ module.exports = {
 
         let timeone = time.replace(/[AMP]|\s/g,'')
         let timetwo = timeone.split(/[:-]/);
-        
-        //                     YYYY        MM          DD        HH       MM      S
-        // var textDate = new Date(dateArr[0], dateArr[1], dateArr[2], timetwo[0], timetwo[1], 0);
-        var textDate = new Date(2018, 5, 27, 15, 18, 0);
-        moment([...dateArr, ...timetwo]).subtract(1,'day').toArray()
 
+        let result = moment([...dateArr, ...timetwo]).subtract(1,'day').toArray()
+
+        let exacttime = result + result[1] - 1
+        
+        //                         YYYY        MM          DD           HH         MM       S
+        var textDate = new Date(exacttime[0], exacttime[1], exacttime[2], exacttime[0], exacttime[1], 0);
+        console.log(textDate)
+        // var textDate = new Date(dateArr[0], dateArr[1], dateArr[2], timetwo[0], timetwo[1], 0);
+        // var textDate = new Date(2018, 5, 28, 9, 18, 0);
         var j = schedule.scheduleJob(textDate, function(){
         
             const accountSid = process.env.TWILIO_SID;
@@ -133,9 +138,9 @@ module.exports = {
     editproducts: (req,res) => {
         const db = req.app.get('db')
         const id = req.params.id
-        const {products} = req.body
+        const {products,hair,chemicaltreatment,lashes} = req.body
 
-        db.edit_products(id, products)
+        db.edit_products(id, products,hair,chemicaltreatment,lashes)
         .then(products => res.status(200).send(products))
         .catch(x => res.status(500).send(x))
     },

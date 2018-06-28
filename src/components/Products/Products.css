@@ -2,7 +2,7 @@
     padding-top: 58px;
     padding-bottom: 30px;
     background-image: var(--appbackground);
-    height: 100vh;
+    height: 100%;
 }
 .mappedproducts{
     margin-top: 10px;

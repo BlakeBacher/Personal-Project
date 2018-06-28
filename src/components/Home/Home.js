@@ -8,7 +8,8 @@ export default class Home extends Component {
         super()
 
         this.state ={
-            currentuser:{}
+            currentuser:{},
+            images:[]
         }
     }
 
@@ -16,9 +17,15 @@ export default class Home extends Component {
         axios.get('/getcurrentuser').then(res => {
             this.setState ({currentuser: res.data})
         })
+        axios.get('/getphotos').then(res => {
+            this.setState ({images:res.data.images})
+            })
     }
 
     render() {
+        let mappedimages = this.state.images.map((e, i) => 
+            <img key = {i} className = 'images border' alt='' src={e}/>
+        )
         return (
             <div>
                 <Nav/>
@@ -29,6 +36,7 @@ export default class Home extends Component {
                         <br/>
                         <p>Welcome to KJOSTYLES! Here you can schedule appointments, look at my most recent work or check out my blog.</p>
                     </div> 
+                    {mappedimages}
                 </div>
             </div> 
         )
