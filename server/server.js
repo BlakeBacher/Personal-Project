@@ -7,7 +7,7 @@ const express = require('express')
     , massive = require('massive')
     , controller = require('./controller')
     ,bodyparser = require('body-parser')
-    ,twilio = require('twilio')
+    // ,twilio = require('twilio')
 
 
     const { 
@@ -97,17 +97,20 @@ app.get('/auth/me' ,(req, res) => {
 })
     
 
-app.get('/api/sendtext', controller.sendtext)
+
 app.get('/getphotos', controller.getposts)
 app.get('/api/getappointments', controller.getappointments)
 app.get('/api/blogposts', controller.getblogposts)
+app.get('/api/getproducts', controller.getproducts)
 app.post('/api/addappointment', controller.addappointment)
 app.post('/api/addblogpost', controller.addblogpost)
+app.post('/api/uploadproducts', controller.uploadproducts)
 app.delete('/api/deleteappointment/:id', controller.deleteappointment)
 app.delete('/api/deleteblogpost/:id', controller.deleteblogpost)
 app.put('/api/editappointment/:id' , controller.editappointment)
 app.put('/api/editblogpost/:id', controller.editblogpost)
-    
+app.put('/api/editproducts/:id', controller.editproducts)    
+
 const port = 3030
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on port: `, SERVER_PORT)

@@ -6,7 +6,7 @@ export default function AdminPricing (){
      return(
         <div>
             <Nav/>
-            <div className = 'pricing'>Admin Pricing</div> 
+            <div className = 'products'>Admin Pricing</div> 
         </div>
      )
 }

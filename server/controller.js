@@ -1,5 +1,9 @@
 const axios = require('axios')
 require('dotenv').config()
+const twilio = require('twilio');
+const schedule = require('node-schedule')
+
+
 
 const {
     ACCESS_TOKEN
@@ -35,9 +39,41 @@ module.exports = {
         .then(blogposts => res.status(200).send(blogposts))
         .catch(x => res.status(500).send(x))
     },
+    getproducts: (req,res) => {
+        const db = req.app.get('db')
+
+        db.get_products()
+        .then(products => res.status(200).send(products))
+        .catch(x => res.status(500).send(x))
+    },
     addappointment: (req,res) => {
         const db = req.app.get('db');
         const {firstname, lastname, phonenumber, service, date, time, notes }=req.body
+
+        let dateArr = date.split('-')
+
+        let timeone = time.replace(/[AMP]|\s/g,'')
+        let timetwo = timeone.split(/[:-]/);
+        
+        //                     YYYY        MM          DD        HH       MM      S
+        // var textDate = new Date(dateArr[0], dateArr[1], dateArr[2], timetwo[0], timetwo[1], 0);
+        var textDate = new Date(2018, 5, 27, 15, 18, 0);
+        moment([...dateArr, ...timetwo]).subtract(1,'day').toArray()
+
+        var j = schedule.scheduleJob(textDate, function(){
+        
+            const accountSid = process.env.TWILIO_SID;
+            const authToken = process.env.TWILIO_TOKEN;
+            var client = new twilio(accountSid, authToken);
+
+            client.messages.create({
+                body: 'Testing',
+                to: phonenumber,  // Text this number
+                from: process.env.TWILIO_NUMBER // From a valid Twilio number
+            })
+            .then((message) => console.log(message.sid));
+
+        });
 
         db.add_appointment(firstname, lastname, phonenumber, service, date, time, notes)
             .then(appointment => res.status(200).send(appointment))
@@ -52,6 +88,14 @@ module.exports = {
         .then(posts => res.status(200).send(posts))
         .catch(x => res.status(500).send(x))
     },
+    uploadproducts:(req,res) => {
+        const db = req.app.get('db')
+        const {products} = req.body
+
+        db.upload_products(products)
+        .then(products => res.status(200).send(200))
+        .then(x => res.status(500).send(x))
+    },  
     deleteappointment: (req, res) => {
         const db = req.app.get('db')
         const {id} = req.params
@@ -86,23 +130,14 @@ module.exports = {
         .then(posts => res.status(200).send(posts))
         .catch(x => res.status(500).send(x))
     },
-    sendtext:(req, res) => {
+    editproducts: (req,res) => {
         const db = req.app.get('db')
-        
-        db.get_user_phonenumber()
+        const id = req.params.id
+        const {products} = req.body
 
-        const accountSid = process.env.TWILIO_SID;
-        const authToken = process.env.TWILIO_TOKEN;
-        const client = new twilio(accountSid, authToken);
-        const user = ''
-        const phonenumber = ''
-
-        client.messages.create({
-            body: 'Testing',
-            to: phonenumber,  // Text this number
-            from: process.env.TWILIO_NUMBER // From a valid Twilio number
-        })
-        .then((message) => console.log(message.sid));
-    }
+        db.edit_products(id, products)
+        .then(products => res.status(200).send(products))
+        .catch(x => res.status(500).send(x))
+    },
 }
 

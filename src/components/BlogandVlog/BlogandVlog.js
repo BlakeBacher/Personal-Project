@@ -21,7 +21,6 @@ export default class Blog extends Component {
     
 
     render() {
-        console.log(this.state)
         let mappedposts = this.state.posts.map((e, i )=> 
             <div key = {i} className = 'blogpost'>
                 <div className = 'blogposttitle'>{e.title}</div>
@@ -37,8 +36,9 @@ export default class Blog extends Component {
         return (
         <div>
             <Nav/>
-            <div className = 'blog'></div>
-            {mappedposts}
+            <div className = 'blog'>
+                {mappedposts}
+            </div>
         </div>
         )
     }

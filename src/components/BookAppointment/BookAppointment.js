@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../Navbar/Navbar'
-import './Schedule.css'
+import './BookAppointment.css'
 import axios from 'axios'
-const schedule = require('node-schedule')
 
 export default class Schedule extends Component {
     constructor(){
@@ -20,7 +19,6 @@ export default class Schedule extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment =  this.addAppointment.bind(this)
         this.numbercheck = this.numbercheck.bind(this)
-        this.sendText = this.sendText.bind(this)
     }
 
     handleChange(e){
@@ -59,28 +57,14 @@ export default class Schedule extends Component {
         }
     }
 
-    sendText(){
-        let dateArr = this.state.date.split('-')
-        //  YYYY  MM  DD  HH MM  S
-
-        // this is how to filter time into 10, 30, 12, 30
-        // var filter = test.replace(/[AMP]|\s/g,'')
-        // var newtime = filter.split(/[:-]/);
-
-
-
-
-        var date = new Date(dateArr[0], dateArr[1], dateArr[2], 5, 30, 0);
-        var j = schedule.scheduleJob(date, function(){
-            console.log('The world is going to end today.');
-        });
-    }
 
     render() {
         return (
             <div>
                 <Nav/>
-                <div className = 'bookappointment'>Fill out the form below to book an appointment!
+                <div className = 'bookappointment'>
+                    <br/>
+                    <div className = 'textbox'>Fill out the form below to book an appointment!</div> 
                     <br/>
                     <form>
                         <input 
@@ -142,13 +126,18 @@ export default class Schedule extends Component {
                             onChange = {this.handleChange}
                         >
                             <option hidden>Time</option>
-                            <option>7:30 - 8:30AM</option>
-                            <option>9:30 - 10:30AM</option>
+                            <option value = {[8]}>8:00 - 9:30AM</option>
+                            <option value = {[10]}>10:00 - 11:30AM</option>
+                            <option value = {[12]}>12:00 - 1:30PM</option>
+                            <option value = {[2]}>2:00 - 3:30AM</option>
+                            <option value = {[4]}>4:00 - 5:30AM</option>
                         </select> 
 
                         <button className='button' onClick = {(e)=> { 
+
                             e.preventDefault()
                             //this allows us to not refresh the page after they clicked okay on the alert.
+
                             if(this.state.check === false){
                                 alert('Invalid phone number.')
                             }else{
@@ -156,7 +145,7 @@ export default class Schedule extends Component {
                             }}}>Submit
                         </button>
                     </form>
-                        <button className='button' onClick ={this.sendText()}>Testing</button>
+                        <button className='button' onClick ={this.sendText}>Testing</button>
                 </div> 
             </div>
         )

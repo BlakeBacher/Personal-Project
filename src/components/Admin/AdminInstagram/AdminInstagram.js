@@ -18,16 +18,13 @@ export default class Home extends Component {
         axios.get('/getphotos').then(res => {
             this.setState ({images:res.data.images, captions: res.data.captions})
             })
-        axios.get('/getcurrentuser').then(res => {
-            this.setState ({currentuser: res.data})
-        })
     }
     
     render() {
         let mappedposts = this.state.images.map((element, i) => 
             <div key = {i}>
                 <div className = 'imgcap'>
-                    <img className = 'photos' alt='' src={element}/>
+                    <img className = 'photos border' alt='' src={element}/>
                     <br/>
                     {this.state.captions[i]}
                 </div> 
@@ -38,14 +35,8 @@ export default class Home extends Component {
         return (
             <div>
                 <Nav/>
-                <div className = 'instagram'>
-                    <div className = 'userinfo'>
-                        <div><img alt = '' className = 'currentuserphoto' src = {this.state.currentuser.picture}/></div>
-                        <div>Hi, {this.state.currentuser.displayname}!</div>
-                        <br/>
-                        <p>Welcome to KJOSTYLES! Here you can schedule appointments, look at my most recent work or check out my blog.</p>
-                    </div> 
-                    <br/>
+                <div className = 'admininstagram'>
+                <div>Link instagram with button taking you to instagram</div> 
                 {mappedposts}
                 </div>
             </div> 

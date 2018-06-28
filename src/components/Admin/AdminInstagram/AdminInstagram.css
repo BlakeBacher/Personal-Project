@@ -1,50 +1,12 @@
-.imgcap{
-    box-shadow: 0px 0px 10px #2c2b2b;
-    padding: 15px;
-    border-radius: 10px;
-    width: 325px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 30px;
-    background-color:whitesmoke;
-}
-.photos{
-    height: 300px;
-    width: 300px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-.captions{
-    width: 300px;
-    box-shadow: 5px 5px 30px #2c2b2b;
-    border-radius: 10px;
-    z-index: 5;
-    padding: 10px;
-    margin: auto;
-}
-.userinfo{
-    box-shadow: 0px 0px 10px #2c2b2b;
-    background-color: whitesmoke;
-    padding: 10px;
-    width: 325px;
-    margin: auto;
-    margin-top: 35px;
-    border-radius: 10px;
-}
-.instagram{
+.admininstagram{
     padding-top: 58px;
-    background-color: rgb(199, 199, 199);
-    background-image: var(--appbackground)
+    padding-bottom: 30px;
+    background-image: var(--appbackground);
+    background-repeat: repeat;
 }
-.currentuserphoto{
-    border-radius: 100px;
-    height: 100px;
-    width: 100px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-}
+
+
+
 p{
     padding: 5px;
 }

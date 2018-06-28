@@ -1,3 +1,16 @@
 .pricing{
     padding-top: 58px;
+    height: 100vh;
+    background-image: var(--appbackground);
+}
+.pricinginput{
+    height: 450px;
+	width: 275px;
+	margin: auto;
+	color: black;
+	margin-top: 20px;
+	padding: 5px;
+	display: flex;
+	box-shadow: var(--appboxshadow);
+	background-color: var(--inputandbuttonbackcolor);
 }

@@ -76,6 +76,9 @@ table {
 		/* buttons and inputs */
 	--inputandbuttonbackcolor: whitesmoke;
 
+		/* posts and instagram images */
+	--postbackcolor : rgb(240, 240, 240);
+
 		/* blog and appointment edit popup */
 	--editpopup: rgba(255, 179, 149, 0.863);
 
@@ -86,7 +89,10 @@ table {
 		/* box shadows */
 	--appboxshadow: 3px 3px 10px rgb(73, 73, 73);
 	--activeshadow: 5px 5px 10px rgb(73, 73, 73);
+		
+			/* borders */
 }
+
 
 
 
@@ -96,6 +102,13 @@ table {
 .App {
   text-align: center;
   font-family: var(--appfont);
+}
+.textbox{
+	padding: 10px;
+	width: 80%;
+	margin: auto;
+	box-shadow: var(--appboxshadow);
+	background-color: var(--postbackcolor)
 }
 .input{
 	height: 50px;
@@ -147,6 +160,11 @@ table {
 .smallbutton:active{
 	box-shadow: var(--activeboxshadow);
 }
+/* this fixes the margin between two (big) buttons (small buttons dont need it) */
+.fix_margin{
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
 .editpopup{
 	height: 555px;
@@ -183,6 +201,11 @@ table {
 	color: black;
 	box-shadow: var(--appboxshadow);
 	background-color: var(--inputandbuttonbackcolor);
+}
+.border{ 
+	border-style: solid;
+	border-width: 2px;
+	border-color: var(--navcolor);
 }
 
 
@@ -262,4 +285,83 @@ header{
 }
 .hiddenDD{
     top: -1500px;
+}
+
+
+	/* Home Page */
+
+.currentuserphoto{
+	border-radius: 100px;
+	height: 100px;
+	width: 100px;
+	box-shadow: var(--appboxshadow);
+	margin-bottom: 15px;
+}
+.userinfo{
+	padding: 10px;
+	width: 325px;
+	margin: auto;
+	margin-top: 35px;
+	box-shadow: var(--appboxshadow);
+	background-color: var(--postbackcolor);
+}
+
+
+/* Instagram Tab */
+
+.imgcap{
+	padding: 15px;
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: var(--appboxshadow);
+    background-color: var(--postbackcolor);
+}
+.photos{
+    height: 295px;
+	width: 295px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+.captions{
+    width: 300px;
+    border-radius: 10px;
+    z-index: 5;
+    padding: 10px;
+    margin: auto;
+	box-shadow: var(--appboxshadow);
+	background-color: var(--postbackcolor);
+}
+
+/* Blog and Vlog */
+
+.blogpost{
+    padding: 15px;
+    width: 325px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    word-wrap: break-word;
+    box-shadow: var(--appboxshadow);
+    background-color: var(--postbackcolor)
+}
+.blogposttitle{
+    font-size: 20px;
+}
+.postinfo{
+    color: black;
+    font-size: 14px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.postname{
+ float: left;
+}
+.dateandtime{
+    float: right;
+    margin-left: 6px;
 }

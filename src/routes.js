@@ -58,13 +58,15 @@ class PrivateRoute extends Component {
 
 export default(
     <Switch>
+		{/* Client */}
         <Route exact path='/' component={Login} />
 		<Route path='/home' component={Home} />
         <Route path='/instagram' component={Instagram} />
         <Route path='/pricing' component={Pricing} />
         <Route path='/blogandvlog' component={BlogandVlog}/>
-        <Route path='/products' component={Products} />
         <Route path='/bookappointment' component={BookAppointment} />
+        <Route path='/products' component={Products} />
+		{/* Admin */}
 		<PrivateRoute path = '/admin/home' component = {AdminHome}/>
 		<PrivateRoute path = '/admin/instagram' component = {AdminInstagram}/>
 		<PrivateRoute exact path='/admin/pricing' component={AdminPricing}/>

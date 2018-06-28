@@ -1,3 +1,6 @@
 .home{
     padding-top: 58px;
+    padding-bottom: 30px;
+    background-image: var(--appbackground);
+    height: 100vh;    /* you may want to delete this when you add the photos to the home page */
 }
