@@ -52,32 +52,27 @@ module.exports = {
         const {firstname, lastname, phonenumber, service, date, time, notes }=req.body
 
         let dateArr = date.split('-')
+        dateArr[1] -= 1
 
         let timeone = time.replace(/[AMP]|\s/g,'')
         let timetwo = timeone.split(/[:-]/);
 
-        let result = moment([...dateArr, ...timetwo]).subtract(1,'day').toArray()
+        let exacttime = moment([...dateArr, ...timetwo]).subtract(1,'day').toArray()
 
-        let exacttime = result + result[1] - 1
-        
-        //                         YYYY        MM          DD           HH         MM       S
-        var textDate = new Date(exacttime[0], exacttime[1], exacttime[2], exacttime[0], exacttime[1], 0);
-        console.log(textDate)
-        // var textDate = new Date(dateArr[0], dateArr[1], dateArr[2], timetwo[0], timetwo[1], 0);
-        // var textDate = new Date(2018, 5, 28, 9, 18, 0);
-        var j = schedule.scheduleJob(textDate, function(){
-        
+        console.log(exacttime)
+
+        var j = schedule.scheduleJob(exacttime, function(){
             const accountSid = process.env.TWILIO_SID;
             const authToken = process.env.TWILIO_TOKEN;
             var client = new twilio(accountSid, authToken);
-
+            console.log('Hit')
             client.messages.create({
                 body: 'Testing',
                 to: phonenumber,  // Text this number
                 from: process.env.TWILIO_NUMBER // From a valid Twilio number
             })
-            .then((message) => console.log(message.sid));
-
+            .then((message) => console.log(message.sid))
+            .done();
         });
 
         db.add_appointment(firstname, lastname, phonenumber, service, date, time, notes)

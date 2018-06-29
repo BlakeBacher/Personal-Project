@@ -51,20 +51,6 @@ table {
 	border-spacing: 0;
 }
 
-
-/* @font-face {
-	font-family: 'Coming Soon';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Coming Soon'), local('ComingSoon'), url(http://themes.googleusercontent.com/static/fonts/comingsoon/v3/myblyOycMnPMGjfPG-DzP50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
-  } */
-  /* @font-face {
-	font-family: 'Dancing Script';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Dancing Script'), local('DancingScript'), url(http://themes.googleusercontent.com/static/fonts/dancingscript/v3/DK0eTGXiZjN6yA8zAEyM2S5FJMZltoAAwO2fP7iHu2o.ttf) format('truetype');
-  } */
-
 :root{
 		/* main app */
 	--appbackground: url(https://i.pinimg.com/originals/f3/ae/1a/f3ae1a460e59e7301d6639d5a10280c5.jpg);
@@ -83,15 +69,13 @@ table {
 		/* blog and appointment edit popup */
 	--editpopup: rgba(255, 179, 149, 0.863);
 
-		/* fonts */
+		/* fonts  these can be found in public/index.htlm */ 
 	--navfont: 'Dancing Script';
 	--appfont: 'Coming Soon';
 	
 		/* box shadows */
 	--appboxshadow: 3px 3px 10px rgb(73, 73, 73);
 	--activeshadow: 5px 5px 10px rgb(73, 73, 73);
-		
-			/* borders */
 }
 
 

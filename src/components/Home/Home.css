@@ -3,15 +3,9 @@
     padding-bottom: 30px;
     background-image: var(--appbackground);
     height: 100%;
+    overflow: hidden;
+    /* background-size: cover; */
 }
-
 .images{
-    height: 150px;
-    width: 150px;
-    display-flex: flex;
-    flex-wrap: wrap;
-    margin:auto;
-    margin: 10px 10px 10px 10px;
-    box-shadow: var(--appboxshadow)
-
-}
+    width: 90%;
+}   
