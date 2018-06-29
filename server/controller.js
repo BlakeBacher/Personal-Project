@@ -57,17 +57,35 @@ module.exports = {
         let timeone = time.replace(/[AMP]|\s/g,'')
         let timetwo = timeone.split(/[:-]/);
 
-        let exacttime = moment([...dateArr, ...timetwo]).subtract(1,'day').toArray()
+        let exacttime24hr = moment([...dateArr, ...timetwo]).subtract(1,'day').toDate()
+        let exacttime30min = moment([...dateArr, ...timetwo]).subtract(30,'minute').toDate()
+        // let finalDate = new Date(...exacttime)
 
-        console.log(exacttime)
+        console.log('This is the date and time in 24 hours ' + exacttime24hr)
 
-        var j = schedule.scheduleJob(exacttime, function(){
+        var hr24 = schedule.scheduleJob(exacttime24hr, function(){
             const accountSid = process.env.TWILIO_SID;
             const authToken = process.env.TWILIO_TOKEN;
             var client = new twilio(accountSid, authToken);
             console.log('Hit')
             client.messages.create({
-                body: 'Testing',
+                body: `Hi! ${firstname}, This is a freindly reminder from kjostyles. Letting your that your appointment for (a) ${service} is in 24 hours. See you tomorrow!`,
+                to: phonenumber,  // Text this number
+                from: process.env.TWILIO_NUMBER // From a valid Twilio number
+            })
+            .then((message) => console.log(message.sid))
+            .done();
+        });
+
+        console.log('This text will send in 30 minutes from ' + exacttime30min)
+
+        var min30 = schedule.scheduleJob(exacttime30min, function(){
+            const accountSid = process.env.TWILIO_SID;
+            const authToken = process.env.TWILIO_TOKEN;
+            var client = new twilio(accountSid, authToken);
+            console.log('Hit')
+            client.messages.create({
+                body: `Hi! ${firstname}, This is a second freindly reminder from kjostyles. Letting your that your appointment for (a) ${service} is in 30 minutes. See you soon!`,
                 to: phonenumber,  // Text this number
                 from: process.env.TWILIO_NUMBER // From a valid Twilio number
             })

@@ -131,7 +131,7 @@ export default class Schedule extends Component {
                             <option>12:00 - 1:30PM</option>
                             <option>2:00 - 3:30AM</option>
                             <option>4:00 - 5:30AM</option>
-                            <option>17:05</option>
+                            <option>15:40</option>
 
                         </select> 
 
