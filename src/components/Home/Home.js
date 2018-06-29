@@ -4,6 +4,7 @@ import Nav from "../Navbar/Navbar";
 import "./Home.css";
 import Slider from "react-slick";
 
+
 export default class Home extends Component {
   constructor() {
     super();
@@ -30,12 +31,12 @@ export default class Home extends Component {
       infinite: true,
       autoplay: true,
       speed: 1000,
-      centerMode: true
+      centerMode: true,
     };
 
     let mappedimages = this.state.images.map((e, i) => (
-      <div className="resizeimage">
-        <img key={i} className="images" alt="" src={e} />
+      <div className="resizeimage" style = {{padding: '5px'}}>
+        <div  style = {{backgroundImage: `url('${e}')`, width: '120px', height: '120px', backgroundSize: 'cover'}}></div> 
       </div>
     ));
     return (

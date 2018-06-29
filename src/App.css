@@ -1,4 +1,3 @@
-
 /* background color needs to be deep green
 nav bar needs to be white or pink */
 
@@ -7,381 +6,443 @@ v2.0 | 20110126
    License: none (public domain)
    */
 
-   html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-:root{
-		/* main app */
-	--appbackground: url(https://i.pinimg.com/originals/f3/ae/1a/f3ae1a460e59e7301d6639d5a10280c5.jpg);
+:root {
+  /* main app */
+  --appbackground: url(https://i.pinimg.com/originals/f3/ae/1a/f3ae1a460e59e7301d6639d5a10280c5.jpg);
 
-		/* nav bar */
-	--navcolor: rgb(255, 179, 149);
-	--navdropdown: rgba(85, 107, 79, 0.863);
-	--navdropdownsolid: #687757;
+  /* nav bar */
+  --navcolor: rgb(255, 179, 149);
+  --navdropdown: rgba(85, 107, 79, 0.863);
+  --navdropdownsolid: #687757;
 
-		/* buttons and inputs */
-	--inputandbuttonbackcolor: whitesmoke;
+  /* buttons and inputs */
+  --inputandbuttonbackcolor: whitesmoke;
 
-		/* posts and instagram images */
-	--postbackcolor : rgb(240, 240, 240);
+  /* posts and instagram images */
+  --postbackcolor: rgb(240, 240, 240);
 
-		/* blog and appointment edit popup */
-	--editpopup: rgba(255, 179, 149, 0.863);
+  /* blog and appointment edit popup */
+  --editpopup: rgba(255, 179, 149, 0.863);
 
-		/* fonts  these can be found in public/index.htlm */ 
-	--navfont: 'Dancing Script';
-	--appfont: 'Coming Soon';
-	
-		/* box shadows */
-	--appboxshadow: 3px 3px 10px rgb(73, 73, 73);
-	--activeshadow: 5px 5px 10px rgb(73, 73, 73);
+  /* fonts  these can be found in public/index.htlm */
+  --navfont: "Dancing Script";
+  --appfont: "Coming Soon";
+
+  /* box shadows */
+  --appboxshadow: 3px 3px 10px rgb(73, 73, 73);
+  --activeshadow: 5px 5px 10px rgb(73, 73, 73);
 }
-
-
-
 
 /* Main app */
-
 
 .App {
   text-align: center;
   font-family: var(--appfont);
 }
-.textbox{
-	padding: 10px;
-	width: 80%;
-	margin: auto;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--postbackcolor)
+.textbox {
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--postbackcolor);
 }
-.input{
-	height: 50px;
-	width: 200px;
-	margin: auto;
-	color: black;
-	margin-top: 20px;
-	padding: 5px;
-	display: flex;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+.input {
+  height: 50px;
+  width: 200px;
+  margin: auto;
+  color: black;
+  margin-top: 20px;
+  padding: 5px;
+  display: flex;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-.notesinput{
-	height: 135px;
-	width: 275px;
-	margin: auto;
-	color: black;
-	margin-top: 20px;
-	padding: 5px;
-	display: flex;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+.notesinput {
+  height: 135px;
+  width: 275px;
+  margin: auto;
+  color: black;
+  margin-top: 20px;
+  padding: 5px;
+  display: flex;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-.button{
-	width: 100px;
-    padding: 20px;
-    border: none;
-    outline: none;
-    font-size: 20px;
-	margin-top: 20px;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+.button {
+  width: 100px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  margin-top: 20px;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-.button:active{
-    box-shadow: var(--activeboxshadow);
+.button:active {
+  box-shadow: var(--activeboxshadow);
 }
-.smallbutton{
-	height: 30px;
-    width: 100px;
-    padding: 10px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-	margin-top: 20px;
-	margin-left: 10px;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+.smallbutton {
+  height: 30px;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 10px;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-.smallbutton:active{
-	box-shadow: var(--activeboxshadow);
+.smallbutton:active {
+  box-shadow: var(--activeboxshadow);
 }
 /* this fixes the margin between two (big) buttons (small buttons dont need it) */
-.fix_margin{
-    margin-left: 10px;
-    margin-right: 10px;
+.fix_margin {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.editpopup{
-	height: 555px;
-    width: 330px;
-    position: fixed;
-    top: 40px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    background-color: var(--editpopup);
+.editpopup {
+  height: 555px;
+  width: 330px;
+  position: fixed;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: var(--editpopup);
 }
-.editpopuphide{
-    display: none;
+.editpopuphide {
+  display: none;
 }
-#editpopupinput{
-	height: 45px;
-	width: 200px;
-	margin: auto;
-	margin-top: 15px;
-	padding: 5px;
-	display: flex;
-	color: black;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+#editpopupinput {
+  height: 45px;
+  width: 200px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 5px;
+  display: flex;
+  color: black;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-#editpopupnotes{
-	height: 100px;
-	width: 275px;
-	margin: auto;
-	margin-top: 20px;
-	padding: 5px;
-	display: flex;
-	color: black;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+#editpopupnotes {
+  height: 100px;
+  width: 275px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 5px;
+  display: flex;
+  color: black;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-.border{ 
-	border-style: solid;
-	border-width: 2px;
-	border-color: var(--navcolor);
+.border {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--navcolor);
 }
-
-
 
 /* Nav Bar CSS */
 
-
-header{
-    background-color: var(--navcolor);
-    color: whitesmoke;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    position: fixed;
-    z-index: 10;
+header {
+  background-color: var(--navcolor);
+  color: whitesmoke;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  z-index: 10;
 }
-.title{
-    float: left;
-    font-family: var(--navfont);
-    font-size: 22px;
-    margin-left: 15px;
-    letter-spacing: 4px;
+.title {
+  float: left;
+  font-family: var(--navfont);
+  font-size: 22px;
+  margin-left: 15px;
+  letter-spacing: 4px;
 }
-.barbox{
-    margin: 15px;
-    float: right;
-    transition: 0.3s;
+.barbox {
+  margin: 15px;
+  float: right;
+  transition: 0.3s;
 }
-.bar{
-    background-color: whitesmoke;
-    height: 2px;
-    width: 25px;
-    border-radius: 3px;
-    margin-top: 4px;
-    transition: 0.1s 0.3s;
+.bar {
+  background-color: whitesmoke;
+  height: 2px;
+  width: 25px;
+  border-radius: 3px;
+  margin-top: 4px;
+  transition: 0.1s 0.3s;
 }
-.barbox1{
-       transform: rotate(90deg)
+.barbox1 {
+  transform: rotate(90deg);
 }
-.bar1{
-    transform: rotate(45deg) translate(4px);
+.bar1 {
+  transform: rotate(45deg) translate(4px);
 }
-.bar2{
-    transform: rotate(-45deg) translate(4px);
+.bar2 {
+  transform: rotate(-45deg) translate(4px);
 }
 
 /* Nav Dropdown and Buttons */
 
-.dropdown{
-    padding: 20px;
-	padding-top: 50px;
-	height: 100%;
-	width: 100%;
-	z-index: 9;
-	position: fixed;
-	background-color: var(--navdropdown);
+.dropdown {
+  padding: 20px;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+  z-index: 9;
+  position: fixed;
+  background-color: var(--navdropdown);
 }
-.dropdownbutton{
-    height: 40px;
-    width: 215px;
-    margin: auto;
-	margin-top: 30px;
-	margin-bottom: 30px;
-    font-size: 20px;
-    color: black;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-decoration: none;
-	letter-spacing: 2px;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--inputandbuttonbackcolor);
+.dropdownbutton {
+  height: 40px;
+  width: 215px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: black;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--inputandbuttonbackcolor);
 }
-.dropdownbutton:active{
-	box-shadow: var(--activeboxshadow);
+.dropdownbutton:active {
+  box-shadow: var(--activeboxshadow);
 }
-.hiddenDD{
-    top: -1500px;
+.hiddenDD {
+  top: -1500px;
 }
 
+/* Home Page */
 
-	/* Home Page */
-
-.currentuserphoto{
-	border-radius: 100px;
-	height: 100px;
-	width: 100px;
-	box-shadow: var(--appboxshadow);
-	margin-bottom: 15px;
+.currentuserphoto {
+  border-radius: 100px;
+  height: 100px;
+  width: 100px;
+  box-shadow: var(--appboxshadow);
+  margin-bottom: 15px;
 }
-.userinfo{
-	padding: 10px;
-	width: 325px;
-	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--postbackcolor);
+.userinfo {
+  padding: 10px;
+  width: 325px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--postbackcolor);
 }
-.carousel{
-    padding: 10px;
-    width: 100%;
-	margin: auto;
-	margin-top: 10%;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--postbackcolor);
+.carousel {
+  padding: 10px;
+  width: 100%;
+  margin: auto;
+  margin-top: 15%;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--postbackcolor);
 }
-.resizeimage{
-    height: 150px;
-    width: 150px;
-    padding: 5px;
-}
-.images{
-    width: 100%;
-    height: 100%;
-}   
-
-
 
 
 /* Instagram Tab */
 
-.imgcap{
-	padding: 15px;
-    width: 325px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 30px;
-    box-shadow: var(--appboxshadow);
-    background-color: var(--postbackcolor);
+.imgcap {
+  padding: 15px;
+  width: 325px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 30px;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--postbackcolor);
 }
-.photos{
-    height: 295px;
-	width: 295px;
-	margin: auto;
-	margin-bottom: 10px;
+.photos {
+  height: 295px;
+  width: 295px;
+  margin: auto;
+  margin-bottom: 10px;
 }
-.captions{
-    width: 300px;
-    border-radius: 10px;
-    z-index: 5;
-    padding: 10px;
-    margin: auto;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--postbackcolor);
+.captions {
+  width: 300px;
+  border-radius: 10px;
+  z-index: 5;
+  padding: 10px;
+  margin: auto;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--postbackcolor);
 }
 
 /* Blog and Vlog */
 
-.blogpost{
-    padding: 15px;
-    width: 325px;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: left;
-    word-wrap: break-word;
-    box-shadow: var(--appboxshadow);
-    background-color: var(--postbackcolor)
+.blogpost {
+  padding: 15px;
+  width: 325px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  word-wrap: break-word;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--postbackcolor);
 }
-.blogposttitle{
-    font-size: 20px;
+.blogposttitle {
+  font-size: 20px;
 }
-.postinfo{
-    color: black;
-    font-size: 14px;
-    margin-top: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.postinfo {
+  color: black;
+  font-size: 14px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.postname{
- float: left;
+.postname {
+  float: left;
 }
-.dateandtime{
-    float: right;
-    margin-left: 6px;
+.dateandtime {
+  float: right;
+  margin-left: 6px;
 }
 
 /* Products */
 
-.productsinputtitle{
-	height: 50px;
-	width: 275px;
-	margin: auto;
-	margin-bottom: 0;
-	margin-top: 20px;
-	font-size: 25px;
-	padding: 14px;
-	color: whitesmoke;
-	box-shadow: var(--appboxshadow);
-	background-color: var(--navdropdownsolid)
+.productsinputtitle {
+  height: 50px;
+  width: 275px;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 20px;
+  font-size: 25px;
+  padding: 14px;
+  color: whitesmoke;
+  box-shadow: var(--appboxshadow);
+  background-color: var(--navdropdownsolid);
 }
