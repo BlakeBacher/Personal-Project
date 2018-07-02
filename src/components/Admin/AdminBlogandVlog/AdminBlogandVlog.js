@@ -103,9 +103,9 @@ export default class AdminBlog extends Component {
                     <button className='button' onClick = {() => {this.addBlogPost()}}>Post</button>
                     <div className = {this.state.editpopup ? 'editpopup animated fadeInUp' : 'editpopuphide animated fadeOutUp'}>
                         <input type='text' name = 'title' className='input' placeholder = 'Title' value = {this.state.title} onChange = {this.handleChange}/>
-                        <textarea type='text' name = 'blogpost' id='blogpost' placeholder = 'Content' value = {this.state.blogpost} onChange = {this.handleChange}/>
-                        <button className='button' onClick = {this.cancel}>Cancel</button>
-                        <button className = 'button' onClick = {(id) => {this.editBlogPost(this.state.id)}}>Update</button> 
+                        <textarea type='text' name = 'blogpost' id='blogpost' style = {{height: '340px'}} placeholder = 'Content' value = {this.state.blogpost} onChange = {this.handleChange}/>
+                        <button className='button' onClick = {this.cancel} style = {{margin: '30px 10px 10px 10px'}}>Cancel</button>
+                        <button className = 'button' style = {{margin: '30px 10px 10px 10px'}} onClick = {(id) => {this.editBlogPost(this.state.id)}}>Update</button> 
                     </div>
                     {mappedposts}
                 </div>

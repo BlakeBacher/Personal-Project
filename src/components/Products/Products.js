@@ -32,13 +32,13 @@ export default class Products extends Component{
             <Nav/>
             <div className = 'products'>
                 <div className = 'productsinputtitle'>Product</div>
-                <textarea type='text' className='productsinput' value = {this.state.products}/>
+                <textarea disabled type='text' className='productsinput' value = {this.state.products}/>
                 <div className = 'productsinputtitle'>Hair</div>
-                <textarea type='text' className='productsinput' value = {this.state.hair}/>
+                <textarea disabled type='text' className='productsinput' value = {this.state.hair}/>
                 <div className = 'productsinputtitle'>Chemical Treatment</div>
-                <textarea type='text' className='productsinput' value = {this.state.chemicaltreatment}/>
+                <textarea disabled type='text' className='productsinput' value = {this.state.chemicaltreatment}/>
                 <div className = 'productsinputtitle'>Lashes</div>
-                <textarea type='text' className='productsinput' value = {this.state.lashes}/>
+                <textarea disabled type='text' className='productsinput' value = {this.state.lashes}/>
             </div> 
         </div>
      )
