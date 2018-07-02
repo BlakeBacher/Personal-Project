@@ -4,14 +4,15 @@ import Nav from "../Navbar/Navbar";
 import "./Home.css";
 import Slider from "react-slick";
 
-
 export default class Home extends Component {
   constructor() {
     super();
 
     this.state = {
       currentuser: {},
-      images: []
+      images: [],
+      weather: '',
+      city:''
     };
   }
 
@@ -22,6 +23,18 @@ export default class Home extends Component {
     axios.get("/getphotos").then(res => {
       this.setState({ images: res.data.images });
     });
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?id=5780026&APPID=${process.env.WEATHER_KEY}`
+      )
+      .then(res => {
+        let currentWF = res.data.main.temp;
+        currentWF = (currentWF - 273.15) * 1.8 + 32;
+        this.setState({
+          weather: currentWF.toFixed(0) + "˚",
+          city: res.data.name
+        });
+      });
   }
 
   render() {
@@ -31,12 +44,19 @@ export default class Home extends Component {
       infinite: true,
       autoplay: true,
       speed: 1000,
-      centerMode: true,
+      centerMode: true
     };
 
     let mappedimages = this.state.images.map((e, i) => (
-      <div className="resizeimage" style = {{padding: '5px'}}>
-        <div  style = {{backgroundImage: `url('${e}')`, width: '120px', height: '120px', backgroundSize: 'cover'}}></div> 
+      <div className="resizeimage" style={{ padding: "5px" }} key={i}>
+        <div
+          style={{
+            backgroundImage: `url('${e}')`,
+            width: "120px",
+            height: "120px",
+            backgroundSize: "cover"
+          }}
+        />
       </div>
     ));
     return (
@@ -52,17 +72,14 @@ export default class Home extends Component {
               />
             </div>
             <div>Hi, {this.state.currentuser.displayname}!</div>
-            <br/>
+            <br />
             <p>Welcome to kjostyles.com</p>
-            {/* <br /> */}
-            {/* <p>
-              Welcome to KJOSTYLES! Here you can schedule appointments, look at
-              my most recent work or check out my blog.
-            </p> */}
           </div>
           <div className="carousel">
             <Slider {...settings}>{mappedimages}</Slider>
           </div>
+          <br/>
+              <div style = {{fontSize: '5px'}}>{this.state.city} {this.state.weather}</div>
         </div>
       </div>
     );
