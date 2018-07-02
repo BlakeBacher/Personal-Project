@@ -25,7 +25,7 @@ export default class Home extends Component {
     });
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?id=5780026&APPID=${process.env.WEATHER_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?id=5780026&APPID=${process.env.REACT_APP_WEATHER_KEY}`
       )
       .then(res => {
         let currentWF = res.data.main.temp;
@@ -79,7 +79,7 @@ export default class Home extends Component {
             <Slider {...settings}>{mappedimages}</Slider>
           </div>
           <br/>
-              <div style = {{fontSize: '15px'}}>{this.state.city} {this.state.weather}</div>
+              <div style = {{fontSize: '5px'}}>{this.state.city} {this.state.weather}</div>
         </div>
       </div>
     );
