@@ -25,7 +25,7 @@ export default class Home extends Component {
     });
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?id=5780026&APPID=${process.env.REACT_APP_WEATHER_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?id=5780026&APPID=${process.env.REACT_APP_WEATHER_KEY}`
       )
       .then(res => {
         let currentWF = res.data.main.temp;
