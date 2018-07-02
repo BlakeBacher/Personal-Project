@@ -79,7 +79,7 @@ export default class Home extends Component {
             <Slider {...settings}>{mappedimages}</Slider>
           </div>
           <br/>
-              <div style = {{fontSize: '5px'}}>{this.state.city} {this.state.weather}</div>
+              <div style = {{fontSize: '15px'}}>{this.state.city} {this.state.weather}</div>
         </div>
       </div>
     );
