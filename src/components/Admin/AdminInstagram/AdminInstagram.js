@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Nav from './../NavBar/AdminNav';
 import axios from 'axios';
 import './AdminInstagram.css'
+import InstagramLogo from './../../Images/instalogo.svg'
+import arrow from './../../Images/arrow.svg'
 
 
 export default class Home extends Component {
@@ -36,7 +38,13 @@ export default class Home extends Component {
             <div>
                 <Nav/>
                 <div className = 'admininstagram'>
-                <div>Link instagram with button taking you to instagram</div> 
+                <div>
+                    <div className = 'textbox' style = {{marginTop: '18px', marginBottom: '18px', height: '50px'}}>
+                        <div style = {{height: '30px', float: 'left', padding: '8px'}}>Check out my Instagram!</div>
+                        <img alt = '' src = {arrow} style = {{height: '30px'}}/>
+                        <a href = 'https://www.instagram.com/kjostyles/'><img alt = '' src = {InstagramLogo} style = {{height: '30px', float: 'right'}}/></a>
+                    </div> 
+                </div> 
                 {mappedposts}
                 </div>
             </div> 

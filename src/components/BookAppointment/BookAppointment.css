@@ -3,7 +3,7 @@
     padding-bottom: 30px;
     background-image: var(--appbackground);
     background-repeat: repeat;
-    height: 100vh;
+    height: 100%;
 }
 
 .phonegreen:focus{
