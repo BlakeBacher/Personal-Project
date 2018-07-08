@@ -32,7 +32,7 @@ export default class Home extends Component {
       centerMode: true
     };
     let mappedimages = this.state.images.map((e, i) => (
-      <div className="resizeimage" style = {{padding: '5px'}}>
+      <div className="resizeimage" style = {{padding: '5px'}} key = {i}>
         <div  style = {{backgroundImage: `url('${e}')`, width: '120px', height: '120px', backgroundSize: 'cover'}}></div> 
       </div>
     ));

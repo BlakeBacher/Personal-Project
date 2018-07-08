@@ -1,6 +1,7 @@
 .pricing{
     padding-top: 58px;
-    height: 100vh;
+    padding-bottom: 30px;
     background-image: var(--appbackground);
+    height: 100%;
 }
 

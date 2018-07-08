@@ -9,9 +9,6 @@ export default class Products extends Component{
 
         this.state = {
             products:'',
-            hair:'',
-            chemicaltreatment:'',
-            lashes:''
         }
     }
 
@@ -19,9 +16,6 @@ export default class Products extends Component{
         axios.get('/api/getproducts').then((res) => {
             this.setState({
                 products: res.data[0].products,
-                hair: res.data[0].hair,
-                chemicaltreatment: res.data[0].chemicaltreatment,
-                lashes: res.data[0].lashes,
             })
         })
     }
@@ -31,14 +25,8 @@ export default class Products extends Component{
         <div>
             <Nav/>
             <div className = 'products'>
-                <div className = 'productsinputtitle'>Product</div>
+                <div className = 'productsinputtitle'>Products</div>
                 <textarea disabled type='text' className='productsinput' value = {this.state.products}/>
-                <div className = 'productsinputtitle'>Hair</div>
-                <textarea disabled type='text' className='productsinput' value = {this.state.hair}/>
-                <div className = 'productsinputtitle'>Chemical Treatment</div>
-                <textarea disabled type='text' className='productsinput' value = {this.state.chemicaltreatment}/>
-                <div className = 'productsinputtitle'>Lashes</div>
-                <textarea disabled type='text' className='productsinput' value = {this.state.lashes}/>
             </div> 
         </div>
      )

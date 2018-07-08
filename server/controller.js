@@ -47,6 +47,13 @@ module.exports = {
         .then(products => res.status(200).send(products))
         .catch(x => res.status(500).send(x))
     },
+    getpricing:(req, res) => {
+        const db = req.app.get('db')
+
+        db.get_pricing()
+        .then(products => res.status(200).send(products))
+        .catch(x => res.status(500).send(x))
+    },
     addappointment: (req,res) => {
         const db = req.app.get('db');
         const {firstname, lastname, phonenumber, service, date, time, notes }=req.body
@@ -157,5 +164,14 @@ module.exports = {
         .then(products => res.status(200).send(products))
         .catch(x => res.status(500).send(x))
     },
+    editpricing: (req, res) => {
+        const db = req.app.get('db')
+        const id = req.params.id
+        const {hair, chemicaltreatment, lashes} = req.body
+
+        db.edit_pricing(id, hair, chemicaltreatment, lashes)
+        .then(pricing => res.status(200).send(pricing))
+        .catch(x => res.status(500).send(x))
+    }
 }
 
