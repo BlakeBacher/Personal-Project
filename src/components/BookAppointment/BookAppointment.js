@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../Navbar/Navbar'
 import './BookAppointment.css'
 import axios from 'axios'
-import StripeCheckout from 'react-stripe-checkout';
 
 export default class Schedule extends Component {
     constructor(){
@@ -16,7 +15,6 @@ export default class Schedule extends Component {
             date:'',
             time:'',
             check: null,
-            price: 2500
         }
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment =  this.addAppointment.bind(this)
@@ -58,17 +56,6 @@ export default class Schedule extends Component {
             this.props.history.push('/home');
         }
     }
-    onToken = (token) => {
-        token.card = void 0;
-        axios.post('http://localhost:9060/api/payment', { token, amount: this.state.price /* the amount actually charged*/ } ).then(response => {
-            this.onPurchaseConfirmation();
-            this.setState({
-                redirect: true
-            })
-            alert('Thanks for your purchase')
-        });
-    }
-
 
     render() {
         return (
@@ -144,13 +131,6 @@ export default class Schedule extends Component {
                             <option>2:00 - 3:30AM</option>
                             <option>4:00 - 5:30AM</option>
                         </select> 
-
-                            <StripeCheckout
-                                token={this.onToken}
-                                stripeKey={ 'pk_test_o71IAmT1mcffYOSUhH2pXnHz' }
-                                amount={this.state.price}
-                                style = {{marginTop: '20px'}}
-                            />
                             <br/>
                         <button className='button' onClick = {(e)=> { 
 

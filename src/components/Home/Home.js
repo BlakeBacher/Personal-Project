@@ -23,18 +23,6 @@ export default class Home extends Component {
     axios.get("/getphotos").then(res => {
       this.setState({ images: res.data.images });
     });
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?id=5780026&APPID=${process.env.REACT_APP_WEATHER_KEY}`
-      )
-      .then(res => {
-        let currentWF = res.data.main.temp;
-        currentWF = (currentWF - 273.15) * 1.8 + 32;
-        this.setState({
-          weather: currentWF.toFixed(0) + "˚",
-          city: res.data.name
-        });
-      });
   }
 
   render() {
