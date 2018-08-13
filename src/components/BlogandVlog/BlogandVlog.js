@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './../Navbar/Navbar'
-import './BlogandVlog.css'
+import Navbar from './../Navbar/Navbar'
 import axios from 'axios'
 import moment from 'moment'
 
@@ -21,7 +20,7 @@ export default class Blog extends Component {
     
 
     render() {
-        let mappedposts = this.state.posts.map((e, i )=> 
+        let mappedposts = this.state.posts.map((e, i ) =>
             <div key = {i} className = 'blogpost'>
                 <div className = 'blogposttitle'>{e.title}</div>
                 <br/>
@@ -35,8 +34,8 @@ export default class Blog extends Component {
         )
         return (
         <div>
-            <Nav/>
-            <div className = 'blog'>
+            <Navbar/>
+            <div className = 'reset'>
                 {mappedposts}
             </div>
         </div>

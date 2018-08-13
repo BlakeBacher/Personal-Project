@@ -3,11 +3,9 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import axios from 'axios'
 
 //Admins
-import AdminHome from './components/Admin/AdminHome/AdminHome'
-import AdminInstagram from './components/Admin/AdminInstagram/AdminInstagram'
 import AdminPricing from './components/Admin/AdminPricing/AdminPricing'
 import Appointments from './components/Admin/Appointments/Appointments'
-import AdminBlogandVlog from './components/Admin/AdminBlogandVlog/AdminBlogandVlog'
+import AdminBlogandVlog from './components/BlogandVlog/AdminBlogandVlog'
 import AdminProducts from './components/Admin/AdminProducts/AdminProducts'
 
 
@@ -67,8 +65,6 @@ export default(
         <Route path='/bookappointment' component={BookAppointment} />
         <Route path='/products' component={Products} />
 		{/* Admin */}
-		<PrivateRoute path = '/admin/home' component = {AdminHome}/>
-		<PrivateRoute path = '/admin/instagram' component = {AdminInstagram}/>
 		<PrivateRoute exact path='/admin/pricing' component={AdminPricing}/>
 		<PrivateRoute  path = '/admin/blogandvlog' component = {AdminBlogandVlog}/>
         <PrivateRoute exact path='/admin/appointments' component={Appointments}/>

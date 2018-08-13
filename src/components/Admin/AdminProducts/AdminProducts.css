@@ -13,4 +13,6 @@
 	display: flex;
 	box-shadow: var(--appboxshadow);
 	background-color: var(--inputandbuttonbackcolor);
+	border:none;
+	outline: none;
 }

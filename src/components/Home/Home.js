@@ -12,7 +12,7 @@ export default class Home extends Component {
       currentuser: {},
       images: [],
       weather: '',
-      city:''
+      city:'',
     };
   }
 

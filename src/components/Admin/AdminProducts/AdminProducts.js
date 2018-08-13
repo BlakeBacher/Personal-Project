@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import Nav from './../NavBar/AdminNav'
+import Navbar from './../../Navbar/Navbar'
 import './AdminProducts.css'
 
 
@@ -38,7 +38,7 @@ export default class AdminProducts extends Component {
     render() {
         return (
             <div>
-            <Nav/>
+            <Navbar/>
             <div className = 'adminproducts'>
                 <div className = 'productsinputtitle'>Products</div>
                 <textarea type='text' className='productsinput' name = 'products' value = {this.state.products} placeholder = 'Products' onChange = {this.handleChange}/>

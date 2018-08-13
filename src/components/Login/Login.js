@@ -16,11 +16,18 @@ export default class Login extends Component {
                 )
             }
         return(
-            <div style ={{ height: '100vh', display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', fontSize: '30px'}}>
-                <p>Please switch to a mobile device. Thank you.</p>
-                <br/>
-                <p>- kjostyles</p>
+        <div className = 'login'>
+            <div className='warning'>
+                <p>Please switch to a mobile device for a better experecne. Thank you.</p>
+                <p>-Kjostyles</p>
             </div> 
+            <div className = 'logindiv'>
+                <div className='h1'>Kjostyles</div> 
+                <a href = {process.env.REACT_APP_LOGIN}>
+                    <button className='button'>Login</button>
+                </a> 
+            </div> 
+        </div>
         )
     }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AdminNav from './../NavBar/AdminNav'
-import './AdminBlogandVlog.css'
+import Navbar from './../Navbar/Navbar'
 import axios from 'axios'
 import moment from 'moment'
+import './../Admin/AdminBlogandVlog/AdminBlogandVlog.css'
 
 export default class AdminBlog extends Component {
     constructor(){
@@ -78,6 +78,7 @@ export default class AdminBlog extends Component {
 
 
     render() {
+        console.log(this.state.posts)
         let mappedposts = this.state.posts.map((e,i) => 
             <div key = {i} className = 'post'>
                 <div className = 'titleOnPost'>{e.title}</div>
@@ -96,8 +97,8 @@ export default class AdminBlog extends Component {
         )  
         return (
             <div>
-                <AdminNav/>
-                <div className = 'adminblog'>
+                <Navbar/>
+                <div className = 'reset'>
                     <input type='text' name = 'title' value = {this.state.title} onChange = {this.handleChange} className='input' placeholder = 'Title'/>
                     <textarea type='text' name = 'blogpost' value = {this.state.blogpost} onChange = {this.handleChange} id='blogpost' placeholder = 'Content'/>
                     <button className='button' onClick = {() => {this.addBlogPost()}}>Post</button>

@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .logindiv{
@@ -22,4 +24,18 @@
 .gr__localhost{
     height: 100%;
     width: 100%;
+}
+
+.warning{
+    background: rgba(26, 24, 24, 0.87);
+    height: 125px;
+    width: 60%;
+    font-size: 25px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: fixed;
+    color: white;
 }

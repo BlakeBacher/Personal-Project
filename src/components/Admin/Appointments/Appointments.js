@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Appointments.css'
-import AdminNav from './../NavBar/AdminNav'
+import Navbar from './../../Navbar/Navbar'
 import axios from 'axios';
 import './../../Navbar/animate.css'
 
@@ -122,7 +122,7 @@ export default class AdminPage extends Component {
         )
         return (
             <div>
-                <AdminNav/>
+                <Navbar/>
                 <div className = 'appointmentsdiv'>
                 <form>
                         <input 

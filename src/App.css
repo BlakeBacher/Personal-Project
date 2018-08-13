@@ -154,7 +154,7 @@ table {
   --appfont: "Coming Soon";
 
   /* box shadows */
-  --appboxshadow: 3px 3px 10px rgb(73, 73, 73);
+  --appboxshadow: 0px 2px 5px rgb(145, 145, 145);
   --activeshadow: 5px 5px 10px rgb(73, 73, 73);
 }
 
@@ -163,6 +163,11 @@ table {
 .App {
   text-align: center;
   font-family: var(--appfont);
+}
+.reset{
+  padding-top: 58px;
+  padding-bottom: 30px;
+  background-image: var(--appbackground);
 }
 .textbox {
   padding: 10px;
@@ -176,22 +181,26 @@ table {
   width: 200px;
   margin: auto;
   color: black;
-  margin-top: 20px;
+  margin: 16px auto 16px auto;
   padding: 5px;
   display: flex;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
+  outline: none;
+  border: none;
+  border-radius: 0;
 }
 .notesinput {
   height: 135px;
   width: 275px;
-  margin: auto;
+  margin: 16px auto 16px auto;
   color: black;
-  margin-top: 20px;
   padding: 5px;
   display: flex;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
+  border: none;
+  outline: none;
 }
 .button {
   width: 100px;
@@ -199,7 +208,7 @@ table {
   border: none;
   outline: none;
   font-size: 20px;
-  margin-top: 20px;
+  margin: 16px auto 16px auto;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
 }

@@ -1,22 +1,26 @@
- import React, {Component} from 'react';
+import React, {Component} from 'react';
 import Dropdown from './Dropdown';
+import {connect} from 'react-redux'
+import {getUser} from './../../ducks/reducer'
 
 
-export default class Navbar extends Component{
+class Navbar extends Component{
     constructor(){
         super()
-
+        
         this.state = {
-            drawerToggle: false
+            drawerToggle: false,
         }
         this.handleToggle = this.handleToggle.bind(this)
     }
-
-
+    
+    componentWillMount(){
+        this.props.getUser()
+    }
     handleToggle(){
         this.setState({drawerToggle: !this.state.drawerToggle})
     }
-
+    
     render(){
      return(
         <div>
@@ -27,8 +31,18 @@ export default class Navbar extends Component{
                     <div className = {this.state.drawerToggle ? 'bar bar2' : 'bar'}></div> 
                 </div>
             </header> 
-            <Dropdown drawerToggle = {this.state.drawerToggle}/>
+            <Dropdown drawerToggle = {this.state.drawerToggle}
+                      userAdmin = {this.props.user.admin}/>
         </div>
         )
     }
 }
+
+
+function mapStateToProps(state){
+    return {
+      user: state.user
+    }
+  }
+  
+  export default connect(mapStateToProps,{getUser})(Navbar)
