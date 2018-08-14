@@ -84,7 +84,7 @@ app.get('/auth/logout', (req, res) => {
 })
 app.get('/login', passport.authenticate('auth0', {connection: 'google-oauth2'})); 
 app.get('/login/callback', passport.authenticate('auth0', {
-    successRedirect: `${process.env.REACT_APP_FRONTEND_URL}#/admin/home`
+    successRedirect: `${process.env.REACT_APP_FRONTEND_URL}#/home`
 }))
 app.get('/getcurrentuser', (req,res) => {
     if(req.user){

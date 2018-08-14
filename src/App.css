@@ -258,6 +258,8 @@ table {
   padding: 5px;
   display: flex;
   color: black;
+  border: none;
+  outline: none;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
 }
@@ -269,6 +271,8 @@ table {
   padding: 5px;
   display: flex;
   color: black;
+  border: none;
+  outline:none;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
 }
@@ -454,4 +458,129 @@ header {
   color: whitesmoke;
   box-shadow: var(--appboxshadow);
   background-color: var(--navdropdownsolid);
+}
+
+/* ADMIN BLOG AND VLOG */
+
+.adminblog{
+  padding-top: 58px;
+  padding-bottom: 30px;
+  background-image: var(--appbackground);
+  background-repeat: repeat;
+}
+
+#blogpost{
+  box-shadow: var(--appboxshadow);
+  height: 275px;
+  width: 275px;
+  margin: auto;
+  background-color: whitesmoke;
+  color: black;
+  margin-top: 20px;
+  padding: 5px;
+  display: flex;
+  border: none;
+  outline: none;
+}
+
+.post{
+  box-shadow: var(--appboxshadow);
+  padding: 15px;
+  width: 325px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color:whitesmoke;
+  text-align: left;
+  word-wrap: break-word;
+}
+.titleOnPost{
+  font-size: 20px;
+}
+.postinfo{
+  color: grey;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.postname{
+float: left;
+}
+.dateandtime{
+  float: right;
+  margin-left: 6px;
+}
+
+/* PRODUCTS */
+.mappedproducts{
+  margin-top: 10px;
+  text-align: left;
+}
+
+/* ADMIN PRODUCTS */
+
+.productsinput{
+  height: 430px;
+width: 275px;
+margin: auto;
+color: black;
+padding: 5px;
+display: flex;
+box-shadow: var(--appboxshadow);
+background-color: var(--inputandbuttonbackcolor);
+border:none;
+outline: none;
+}
+
+/* APPOINTMENTS */
+
+.appointments{
+  background-color: whitesmoke;
+  font-size: 20px;
+  border-style: solid;
+  box-shadow: var(--appboxshadow);
+  padding: 10px;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+.addappointment{
+  height: 555px;
+  width: 330px;
+  position: fixed;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: var(--editpopup);
+}
+.hiddenappointment{
+  display: none;
+}
+/* BOOK APPOINTMENTS */
+
+.phonegreen:focus{
+  color: green;
+  background-color: rgb(185, 255, 185)
+}
+.phonered{
+  background-color: rgb(255, 184, 184);
+}
+
+/* INSTAGRAM */
+
+.instalink{
+  margin: 18px auto 18px auto;
+  height: 125px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 325px;
+  box-shadow: var(--appboxshadow);
+  background: var(--inputandbuttonbackcolor);
+}
+#instaicon{
+  height: 40px;
 }

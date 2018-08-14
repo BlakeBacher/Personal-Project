@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from './../Navbar/Navbar'
+import Navbar from '../Navbar/Navbar'
 import axios from 'axios'
 import moment from 'moment'
-import './../Admin/AdminBlogandVlog/AdminBlogandVlog.css'
 
 export default class AdminBlog extends Component {
     constructor(){
@@ -78,7 +77,6 @@ export default class AdminBlog extends Component {
 
 
     render() {
-        console.log(this.state.posts)
         let mappedposts = this.state.posts.map((e,i) => 
             <div key = {i} className = 'post'>
                 <div className = 'titleOnPost'>{e.title}</div>

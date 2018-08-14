@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Dropdown from './Dropdown';
 import {connect} from 'react-redux'
-import {getUser} from './../../ducks/reducer'
+import {getUser} from '../../ducks/reducer'
 
 
 class Navbar extends Component{

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../Navbar/Navbar'
-import './BookAppointment.css'
+import Navbar from './../Navbar/Navbar'
 import axios from 'axios'
 
 export default class Schedule extends Component {
@@ -60,8 +59,8 @@ export default class Schedule extends Component {
     render() {
         return (
             <div>
-                <Nav/>
-                <div className = 'bookappointment'>
+                <Navbar/>
+                <div className = 'reset'>
                     <br/>
                     <div className = 'textbox'>Fill out the form below to book an appointment!</div> 
                     <br/>

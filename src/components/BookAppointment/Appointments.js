@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './Appointments.css'
-import Navbar from './../../Navbar/Navbar'
+import Navbar from '../Navbar/Navbar'
 import axios from 'axios';
-import './../../Navbar/animate.css'
+import './../../animate.css'
 
 export default class AdminPage extends Component {
     constructor(){
@@ -18,13 +17,15 @@ export default class AdminPage extends Component {
             date:'',
             time:'',
             notes:'',
-            editpopup: false
+            editpopup: false,
+            appointmentpopup: false
         }
         this.handlePopUp = this.handlePopUp.bind(this)
         this.cancel = this.cancel.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.addAppointment = this.addAppointment.bind(this)
         this.deleteAppointment = this.deleteAppointment.bind(this)
+        this.handleAddingAppointment = this.handleAddingAppointment.bind(this)
     }
     handlePopUp(e){
         this.setState({
@@ -39,8 +40,12 @@ export default class AdminPage extends Component {
             id: e.id
         })
     }
+    handleAddingAppointment(){
+        this.setState({appointmentpopup: true})
+    }
     cancel(){
         this.setState({
+            appointmentpopup:false,
             editpopup: false,
             firstname:'',
             lastname:'',
@@ -70,6 +75,7 @@ export default class AdminPage extends Component {
         }
         axios.post('/api/addappointment', body).then(() => {
             alert('Submitted!')
+            this.setState({appointmentpopup: false})
         })
     }
     deleteAppointment(id){
@@ -123,40 +129,40 @@ export default class AdminPage extends Component {
         return (
             <div>
                 <Navbar/>
-                <div className = 'appointmentsdiv'>
-                <form>
+                <div className = 'reset'>
+                    <div className={this.state.appointmentpopup ? 'addappointment animated fadeInUp' : 'hiddenappointment addappointment'}>
                         <input 
                             type='text'
-                            className='input'
+                            id='editpopupinput'
                             placeholder = 'Firstname'
                             name = 'firstname'
                             value = {this.state.firstname}
                             onChange = {this.handleChange}
-                        />
+                            />
                         <input 
                             type='text'
-                            className='input'
+                            id='editpopupinput'
                             placeholder = 'Lastname'
                             name = 'lastname'
                             value = {this.state.lastname}
                             onChange = {this.handleChange}
-                        />
+                            />
                         <input 
                             type='tel' 
-                            className='input' 
+                            id='editpopupinput' 
                             placeholder = 'Phone Number' 
                             name = 'phonenumber' 
                             value = {this.state.phonenumber} 
                             onChange = {this.handleChange}
-                        />
+                            />
                         <select
                             type='text'
-                            className='input'
+                            id='editpopupinput'
                             placeholder = 'Service'
                             name = 'service'
                             value = {this.state.service}
                             onChange = {this.handleChange}
-                        >
+                            >
                             <option hidden>Service</option>
                             <option>Hair Cut</option>
                             <option>Eyelashes</option>
@@ -164,18 +170,18 @@ export default class AdminPage extends Component {
                         </select>
                         <input
                             type = 'date'
-                            className = 'input'
+                            id = 'editpopupinput'
                             placeholder = 'Date'
                             name = 'date'
                             value = {this.state.date}
                             onChange = {this.handleChange}
-                        />
+                            />
                         <select 
-                            className = 'input'
+                            id = 'editpopupinput'
                             name = 'time' 
                             value ={this.state.time} 
                             onChange = {this.handleChange}
-                        >
+                            >
                             <option hidden>Time</option>
                             <option>8:00 - 9:30AM</option>
                             <option>10:00 - 11:30AM</option>
@@ -185,16 +191,18 @@ export default class AdminPage extends Component {
                         </select>
                         <textarea 
                             type = 'text'
-                            className = 'notesinput'
+                            id = 'editpopupnotes'
                             placeholder = 'Notes'
                             name = 'notes'
                             value = {this.state.notes}
                             onChange = {this.handleChange}
-                        />
-                        <button className='button' onClick = {this.addAppointment}>Submit</button>
-                    </form>
+                            />
+                        <button className='smallbutton' onClick={this.cancel}>Cancel</button>
+                        <button className='smallbutton' onClick={this.addAppointment}>Add</button>
+                    </div>
+                        <button className='button' style = {{width:'300px'}} onClick={()=> {this.handleAddingAppointment()}}>Add Appointment</button>
 
-                    <div className = {this.state.editpopup ? 'editpopup animated fadeInUp' : 'editpopuphide animated fadeOutUp'}>
+<div className = {this.state.editpopup ? 'editpopup animated fadeInUp' : 'editpopuphide animated fadeOutUp'}>
                         <input type='firstname' name = 'firstname' value = {this.state.firstname} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Firstname'/>
                         <input type='lastname' name = 'lastname' value = {this.state.lastname} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Lastname'/>
                         <input type='phonenumber' name = 'phonenumber' value = {this.state.phonenumber} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Phone Number'/>

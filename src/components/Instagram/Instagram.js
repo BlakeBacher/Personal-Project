@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Nav from '../Navbar/Navbar';
 import axios from 'axios';
-import './Instagram.css'
-import InstagramLogo from './../Images/instalogo.svg'
-import arrow from './../Images/arrow.svg'
+
+import instagram_icon from './../Images/instagram_icon.png'
+// import right_arrow_icon_pink from './../Images/right_arrow_icon_pink.svg'
 
 
 export default class Instagram extends Component {
@@ -16,9 +16,14 @@ export default class Instagram extends Component {
             currentuser:{}
         }
     }
-    componentDidMount(){
+    componentWillMount(){
         axios.get('/getphotos').then(res => {
-            this.setState ({images:res.data.images, captions: res.data.captions})
+            let captions = []
+            res.data.captions.map((cap) => {  
+                var caption = cap.replace(/#(.*)/g, '')
+                captions.push(caption)
+            })
+            this.setState ({images:res.data.images, captions:captions})
             })
     }
     
@@ -35,12 +40,11 @@ export default class Instagram extends Component {
         return (
             <div>
                 <Nav/>
-                <div className = 'instagram'>
+                <div className = 'reset'>
                 <div>
-                    <div className = 'textbox' style = {{marginTop: '18px', marginBottom: '18px', height: '50px'}}>
-                        <div style = {{height: '30px', float: 'left', padding: '8px'}}>Check out my Instagram!</div>
-                        <img alt = '' src = {arrow} style = {{height: '30px'}}/>
-                        <a href = 'https://www.instagram.com/kjostyles/'><img alt = '' src = {InstagramLogo} style = {{height: '30px', float: 'right'}}/></a>
+                    <div className='instalink border'>
+                        <p style = {{fontSize: '22px', padding:'10px'}}>Click here to check out my Instagram!</p>
+                        <a href = 'https://www.instagram.com/kjostyles/'><img alt = '' src = {instagram_icon} id='instaicon'/></a>
                     </div> 
                 </div> 
                 {mappedposts}
