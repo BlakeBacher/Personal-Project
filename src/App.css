@@ -136,9 +136,9 @@ table {
   --appbackground: url(https://i.pinimg.com/originals/f3/ae/1a/f3ae1a460e59e7301d6639d5a10280c5.jpg);
 
   /* nav bar */
-  --navcolor: rgb(255, 179, 149);
-  --navdropdown: rgba(85, 107, 79, 0.863);
-  --navdropdownsolid: #687757;
+  --navcolor: #a0bfae;
+  --navdropdown: #a0bfaec9;
+  --navdropdownsolid: #a0bfae;
 
   /* buttons and inputs */
   --inputandbuttonbackcolor: whitesmoke;
@@ -168,17 +168,25 @@ table {
   padding-top: 58px;
   padding-bottom: 30px;
   background-image: var(--appbackground);
+  min-height: 100vh;
 }
+.wizardreset{
+  padding-top: 58px;
+  padding-bottom: 30px;
+  background-image: var(--appbackground);
+  min-height: 100vh;
+}
+
 .textbox {
   padding: 10px;
-  width: 80%;
+  width: 90%;
   margin: auto;
   box-shadow: var(--appboxshadow);
   background-color: var(--postbackcolor);
 }
 .input {
   height: 50px;
-  width: 200px;
+  width: 275px;
   margin: auto;
   color: black;
   margin: 16px auto 16px auto;
@@ -203,17 +211,21 @@ table {
   outline: none;
 }
 .button {
-  width: 100px;
+  color: black;
   padding: 20px;
   border: none;
   outline: none;
   font-size: 20px;
-  margin: 16px auto 16px auto;
+  margin: 16px 5px 16px 5px;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
 }
 .button:active {
   box-shadow: var(--activeboxshadow);
+}
+.wizbutton{
+  position: absolute;
+  bottom: 20px;
 }
 .smallbutton {
   height: 30px;
@@ -250,20 +262,20 @@ table {
 .editpopuphide {
   display: none;
 }
-#editpopupinput {
+.editpopupinput {
   height: 45px;
   width: 200px;
-  margin: auto;
-  margin-top: 15px;
+  margin: 15px auto 15px auto;
   padding: 5px;
   display: flex;
   color: black;
   border: none;
   outline: none;
+  border-radius: 0;
   box-shadow: var(--appboxshadow);
   background-color: var(--inputandbuttonbackcolor);
 }
-#editpopupnotes {
+.editpopupnotes {
   height: 100px;
   width: 275px;
   margin: auto;

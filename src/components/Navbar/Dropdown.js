@@ -22,7 +22,7 @@ export default (props)=> {
                     <Link to = '/instagram'><li className = 'dropdownbutton border'>Instagram</li></Link>
                     {/* <Link to = '/blogandvlog'><li className = 'dropdownbutton border'>Blog & Vlog</li></Link> */}
                     <Link to = '/pricing'><li className = 'dropdownbutton border'>Pricing</li></Link>
-                    <Link to = '/bookappointment'><li className = 'dropdownbutton border'>Book Appointment</li></Link>
+                    <Link to = '/appointments'><li className = 'dropdownbutton border'>Book Appointment</li></Link>
                     <Link to = '/products'><li className = 'dropdownbutton border'>Products</li></Link>
                     <Link to = ''><li href = {process.env.REACT_APP_LOGOUT} className = 'dropdownbutton border'>Logout</li></Link>
                 </div>

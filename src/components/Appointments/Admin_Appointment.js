@@ -133,7 +133,7 @@ export default class AdminPage extends Component {
                     <div className={this.state.appointmentpopup ? 'addappointment animated fadeInUp' : 'hiddenappointment addappointment'}>
                         <input 
                             type='text'
-                            id='editpopupinput'
+                        className='editpopupinput'
                             placeholder = 'Firstname'
                             name = 'firstname'
                             value = {this.state.firstname}
@@ -141,7 +141,7 @@ export default class AdminPage extends Component {
                             />
                         <input 
                             type='text'
-                            id='editpopupinput'
+                        className='editpopupinput'
                             placeholder = 'Lastname'
                             name = 'lastname'
                             value = {this.state.lastname}
@@ -149,7 +149,7 @@ export default class AdminPage extends Component {
                             />
                         <input 
                             type='tel' 
-                            id='editpopupinput' 
+                        className='editpopupinput' 
                             placeholder = 'Phone Number' 
                             name = 'phonenumber' 
                             value = {this.state.phonenumber} 
@@ -157,7 +157,7 @@ export default class AdminPage extends Component {
                             />
                         <select
                             type='text'
-                            id='editpopupinput'
+                        className='editpopupinput'
                             placeholder = 'Service'
                             name = 'service'
                             value = {this.state.service}
@@ -170,14 +170,14 @@ export default class AdminPage extends Component {
                         </select>
                         <input
                             type = 'date'
-                            id = 'editpopupinput'
+                            className = 'editpopupinput'
                             placeholder = 'Date'
                             name = 'date'
                             value = {this.state.date}
                             onChange = {this.handleChange}
                             />
                         <select 
-                            id = 'editpopupinput'
+                            className = 'editpopupinput'
                             name = 'time' 
                             value ={this.state.time} 
                             onChange = {this.handleChange}
@@ -191,7 +191,7 @@ export default class AdminPage extends Component {
                         </select>
                         <textarea 
                             type = 'text'
-                            id = 'editpopupnotes'
+                            className = 'editpopupnotes'
                             placeholder = 'Notes'
                             name = 'notes'
                             value = {this.state.notes}
@@ -200,15 +200,15 @@ export default class AdminPage extends Component {
                         <button className='smallbutton' onClick={this.cancel}>Cancel</button>
                         <button className='smallbutton' onClick={this.addAppointment}>Add</button>
                     </div>
-                        <button className='button' style = {{width:'300px'}} onClick={()=> {this.handleAddingAppointment()}}>Add Appointment</button>
+                        <button className='button' onClick={()=> {this.handleAddingAppointment()}}>Add Appointment</button>
 
 <div className = {this.state.editpopup ? 'editpopup animated fadeInUp' : 'editpopuphide animated fadeOutUp'}>
-                        <input type='firstname' name = 'firstname' value = {this.state.firstname} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Firstname'/>
-                        <input type='lastname' name = 'lastname' value = {this.state.lastname} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Lastname'/>
-                        <input type='phonenumber' name = 'phonenumber' value = {this.state.phonenumber} onChange = {this.handleChange} id='editpopupinput' placeholder = 'Phone Number'/>
+                        <input type='firstname' name = 'firstname' value = {this.state.firstname} onChange = {this.handleChange} className='editpopupinput' placeholder = 'Firstname'/>
+                        <input type='lastname' name = 'lastname' value = {this.state.lastname} onChange = {this.handleChange} className='editpopupinput' placeholder = 'Lastname'/>
+                        <input type='phonenumber' name = 'phonenumber' value = {this.state.phonenumber} onChange = {this.handleChange} className='editpopupinput' placeholder = 'Phone Number'/>
                         <select
                             type='text'
-                            id='editpopupinput'
+                            className='editpopupinput'
                             placeholder = 'Service'
                             name = 'service'
                             value = {this.state.service}
@@ -221,14 +221,14 @@ export default class AdminPage extends Component {
                         </select>
                         <input
                             type = 'date'
-                            id ='editpopupinput'
+                            className ='editpopupinput'
                             placeholder = 'Date'
                             name = 'date'
                             value = {this.state.date}
                             onChange = {this.handleChange}
                         />
                         <select 
-                            id ='editpopupinput'
+                            className ='editpopupinput'
                             name = 'time' 
                             value ={this.state.time} 
                             onChange = {this.handleChange}
@@ -242,7 +242,7 @@ export default class AdminPage extends Component {
                         </select>
                         <textarea 
                             type = 'text'
-                            id ='editpopupnotes'
+                            className ='editpopupnotes'
                             placeholder = 'Notes'
                             name = 'notes'
                             value = {this.state.notes}
