@@ -56,61 +56,13 @@ export default class Schedule extends Component {
             <div>
                 <Navbar/>
                 <div className = 'reset'>
-                    <div className = 'textbox'>Here you can schedule for an appointment or view upcoming appointments!</div>
-                    <Link to='/wizard1'><button className='button'>Book Appointment</button></Link>
-                        {/* <div>
-
-                            <select
-                                required
-                                type='text'
-                                className='input'
-                                placeholder = 'Service'
-                                name = 'service'
-                                value = {this.state.service}
-                                onChange = {this.handleChange}
-                            >
-                                <option hidden>Service</option>
-                                <option>Hair Cut</option>
-                                <option>Eyelashes</option>
-                                <option>Color</option>
-                            </select>
-                            <input
-                                type = 'date'
-                                className='input'
-                                placeholder = 'Date'
-                                name = 'date'
-                                value = {this.state.date}
-                                onChange = {this.handleChange}
-                                required
-                            />
-                            <select 
-                                required
-                                className='input'
-                                name = 'time' 
-                                value ={this.state.time} 
-                                onChange = {this.handleChange}
-                            >
-                                <option hidden>Time</option>
-                                <option>8:00 - 9:30AM</option>
-                                <option>10:00 - 11:30AM</option>
-                                <option>12:00 - 1:30PM</option>
-                                <option>2:00 - 3:30AM</option>
-                                <option>4:00 - 5:30AM</option>
-                            </select> 
-                                <br/>
-                                <button className='button' onClick={this.bookappointmenttoggle}>Cancel</button>
-                            <button className='button' onClick = {(e)=> { 
-                                e.preventDefault()
-                                //this allows us to not refresh the page after they clicked okay on the alert.
-                                if(this.state.check === false){
-                                    alert('Invalid phone number.')
-                                }else{
-                                    this.addAppointment(e)
-                                }}}>Submit
-                            </button>
-                        </div> */}
+                    <div className = 'textbox'>Here you can schedule for an appointment or view your upcoming appointments!</div>
+                    <div className='squarelink'>
+                        <a target="_top" href="https://squareup.com/appointments/book/D41KGJ7SVT9HD/kjostyles" rel="nofollow">Book Appointment</a>
+                    </div> 
+                    {/* <Link to='/wizard1'><button className='button'>Book Appointment</button></Link> */}
                         <div>
-                        </div> 
+                    </div> 
                 </div> 
             </div>
         )

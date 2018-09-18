@@ -12,7 +12,7 @@ export default (props)=> {
                     <Link to = '/instagram'><li className = 'dropdownbutton border'>Instagram</li></Link>
                     {/* <Link to = '/admin/blogandvlog'><li className = 'dropdownbutton border'>Blog & Vlog</li></Link> */}
                     <Link to = '/pricing'><li className = 'dropdownbutton border'>Pricing</li></Link>
-                    <Link to = '/admin/appointments'><li className = 'dropdownbutton border'>Appointments</li></Link>
+                    {/* <Link to = '/admin/appointments'><li className = 'dropdownbutton border'>Appointments</li></Link> */}
                     <Link to = '/products'><li className = 'dropdownbutton border'>Products</li></Link>
                     <Link to = ''><li href = {process.env.REACT_APP_LOGOUT} className = 'dropdownbutton border'>Logout</li></Link>
                 </div>
@@ -22,7 +22,11 @@ export default (props)=> {
                     <Link to = '/instagram'><li className = 'dropdownbutton border'>Instagram</li></Link>
                     {/* <Link to = '/blogandvlog'><li className = 'dropdownbutton border'>Blog & Vlog</li></Link> */}
                     <Link to = '/pricing'><li className = 'dropdownbutton border'>Pricing</li></Link>
-                    <Link to = '/appointments'><li className = 'dropdownbutton border'>Book Appointment</li></Link>
+                    <div>
+                        <a href='https://squareup.com/appointments/book/D41KGJ7SVT9HD/kjostyles' className='dropdownbutton border'>
+                            Book Appointment
+                        </a>
+                    </div>
                     <Link to = '/products'><li className = 'dropdownbutton border'>Products</li></Link>
                     <Link to = ''><li href = {process.env.REACT_APP_LOGOUT} className = 'dropdownbutton border'>Logout</li></Link>
                 </div>

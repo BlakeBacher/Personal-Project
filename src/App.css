@@ -146,9 +146,6 @@ table {
   /* posts and instagram images */
   --postbackcolor: rgb(240, 240, 240);
 
-  /* blog and appointment edit popup */
-  --editpopup: rgba(255, 179, 149, 0.863);
-
   /* fonts  these can be found in public/index.htlm */
   --navfont: "Dancing Script";
   --appfont: "Coming Soon";
@@ -176,7 +173,10 @@ table {
   background-image: var(--appbackground);
   min-height: 100vh;
 }
-
+div a {
+  color: black !important;
+  text-decoration: none !important;
+}
 .textbox {
   padding: 10px;
   width: 90%;
@@ -225,7 +225,8 @@ table {
 }
 .wizbutton{
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
+  left: 40vw;
 }
 .smallbutton {
   height: 30px;
@@ -257,7 +258,7 @@ table {
   bottom: 0;
   left: 0;
   margin: auto;
-  background-color: var(--editpopup);
+  background-color: var(--navdropdown);
 }
 .editpopuphide {
   display: none;
@@ -564,7 +565,7 @@ outline: none;
   bottom: 0;
   left: 0;
   margin: auto;
-  background-color: var(--editpopup);
+  background-color: var(--navdropdown);
 }
 .hiddenappointment{
   display: none;
@@ -578,6 +579,7 @@ outline: none;
 .phonered{
   background-color: rgb(255, 184, 184);
 }
+
 
 /* INSTAGRAM */
 

@@ -9,8 +9,9 @@ export default class Wizard2 extends Component {
             <div>
                 <Navbar/>
                 <div className='wizardreset'>
-                    Wizard 2
-                    <Link to='/wizard3'><button className='button'>Next</button></Link>
+                Wizard 2
+                
+                    <Link to='/wizard3'><button className='button wizbutton'>Next</button></Link>
                 </div> 
             </div>
         )

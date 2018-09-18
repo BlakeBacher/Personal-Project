@@ -46,7 +46,7 @@ class Products extends Component{
             :
                 <div className = 'reset'>
                     <div className = 'productsinputtitle'>Products</div>
-                    <textarea disabled type='text' className='productsinput' value = {this.state.products}/>
+                    <textarea type='text' className='productsinput' value = {this.state.products}/>
                 </div> 
             }
         </div>

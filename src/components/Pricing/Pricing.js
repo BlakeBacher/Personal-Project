@@ -55,11 +55,11 @@ class Pricing extends Component {
             :  
                 <div className = 'reset'>
                     <div className = 'productsinputtitle'>Hair</div>
-                    <textarea disabled type='text' className='productsinput' value = {this.state.hair}/>
+                    <textarea type='text' className='productsinput' value = {this.state.hair}/>
                     <div className = 'productsinputtitle'>Chemical Treatment</div>
-                    <textarea disabled type='text' className='productsinput' value = {this.state.chemicaltreatment}/>
+                    <textarea type='text' className='productsinput' value = {this.state.chemicaltreatment}/>
                     <div className = 'productsinputtitle'>Lashes</div>
-                    <textarea disabled type='text' className='productsinput' value = {this.state.lashes}/>
+                    <textarea type='text' className='productsinput' value = {this.state.lashes}/>
                 </div>
             }
             </div>
